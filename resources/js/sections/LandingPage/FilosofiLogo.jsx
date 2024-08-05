@@ -135,8 +135,15 @@ const FilosofiLogo = () => {
             />
         </div>
         <main className="flex justify-center items-center">
-            <div className="w-1/2 p-20">
-                <img
+            <div className="w-1/2 px-20 py-20">
+                <motion.img
+                animate={{
+                    scale :[1,1.05,1]
+                }}
+                transition={{
+                    repeat:Infinity,
+                    duration:5
+                }}
                     src={getLogo()?.logoImage}
                     alt={getLogo().title}
                     className="relative  size-full "
@@ -183,14 +190,14 @@ const FilosofiLogo = () => {
             }}
             coverflowEffect={{
                 rotate: 0,
-                stretch: 50,
-                depth: 200,
+                stretch: 10,
+                depth: 300,
                 modifier: 5,
                 slideShadows: false,
             }}
             initialSlide={currentIndex}
             onActiveIndexChange={updateIndex}
-            className="w-3/5"
+            className="w-2/5"
         >
             {dummyData.map((e) => (
                 <SwiperSlide key={e.id} className="w-full">

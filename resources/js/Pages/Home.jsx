@@ -11,6 +11,8 @@ import Ripple from "@/Components/magicui/ripple";
 import maskot from '../../assets/Maskot.webp'
 import wave from '../../assets/wave.png'
 import FilosofiLogo from "@/sections/LandingPage/FilosofiLogo";
+import VisiMisi from "@/sections/LandingPage/VisiMisi";
+import KilasBalik from "@/sections/LandingPage/KilasBalik";
 export default function Home() {
     const [count, setCount] = useState(0);
 
@@ -26,7 +28,7 @@ export default function Home() {
     return (
         <>
             <Head title="home" />
-            <div className="bg-white overflow-hidden">
+            <div className="bg-white ">
                 <header className="h-screen relative font-jakarta flex items-center justify-center">
                     <main className="container mx-auto text-xl text-center space-y-2 relative">
                         <h1 className="text-6xl font-bold text-primary300 ">
@@ -112,9 +114,11 @@ export default function Home() {
                     </div>
                 </section>
                 <FilosofiLogo/>
-                <section className="w-full h-[400vh] rounded-t-3xl bg-primary500">
+               <VisiMisi/>
+               <KilasBalik/>
+               <section className="h-[300vh]">
 
-                </section>
+               </section>
             </div>
         </>
     );
