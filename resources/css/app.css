@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+    font-family: "KampungBudaya";
+    src: url('../assets/Font/KambudFixx-Regular.otf') format('opentype');
+}
+  

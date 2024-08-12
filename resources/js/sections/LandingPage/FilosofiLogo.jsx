@@ -3,8 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
-import DekorasiKanan from "../../../assets/dekorKanan.png";
-import DekorasiKiri from "../../../assets/dekorKiri.png";
+import DekorasiKanan from "../../../assets/filosofiKanan.png";
+import DekorasiKiri from "../../../assets/filosofiKiri.png";
+import TextJudul from "../../../assets/Filosofi Logo Kampung Budaya 2024.png";
 import { motion } from "framer-motion";
 import Logo from "../../../assets/logo.png";
 const dummyData = [
@@ -98,7 +99,6 @@ const dummyData = [
             "Pameran yang menampilkan berbagai karya seni dari seniman lokal untuk merayakan keberagaman budaya",
         logoImage: Logo,
     },
-  
 ];
 
 const FilosofiLogo = () => {
@@ -116,105 +116,128 @@ const FilosofiLogo = () => {
     };
     return (
         <section className="container mx-auto py-10 relative">
-        <div className="flex justify-between items-center">
-            <img
-                src={DekorasiKiri}
-                alt="dekorasi"
-                className=""
-                draggable="false"
-            />
-            <div className="font-playfair font-bold text-7xl text-center">
-                <h1 className="text-primary300">Filosofi Logo</h1>
-                <h1 className="text-primary100">Kampung Budaya 2024</h1>
-            </div>
-            <img
-                src={DekorasiKanan}
-                alt="dekorasi"
-                className=""
-                draggable="false"
-            />
-        </div>
-        <main className="flex justify-center items-center">
-            <div className="w-1/2 px-20 py-20">
+            <div className="flex justify-between items-center shrink-0">
                 <motion.img
-                animate={{
-                    scale :[1,1.05,1]
-                }}
-                transition={{
-                    repeat:Infinity,
-                    duration:5
-                }}
-                    src={getLogo()?.logoImage}
-                    alt={getLogo().title}
-                    className="relative  size-full "
-                    draggable='false'
+                    whileHover={{
+                        rotate: "3deg",
+                    }}
+                    whileTap={{
+                        scale: 0.95,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                    }}
+                    src={DekorasiKiri}
+                    alt="dekorasi"
+                    className=""
+                    draggable="false"
+                />
+                <img
+                    src={TextJudul}
+                    draggable="false"
+                    className="w-3/5"
+                    alt="Filosofi Logo Kampung Budaya 2024"
+                />
+                <motion.img
+                    whileHover={{
+                        rotate: "-3deg",
+                    }}
+                    whileTap={{
+                        scale: 0.95,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                    }}
+                    src={DekorasiKanan}
+                    alt="dekorasi"
+                    className=""
+                    draggable="false"
                 />
             </div>
-            <div className="space-y-4 w-1/2 font-jakarta">
-                <h5 className="font-bold text-4xl text-secondary300 ">
-                    {getLogo()?.logoDescription}
-                </h5>
-                <p className="font-medium text-2xl text-primary300">
-                    {getLogo()?.detailDescription}
-                </p>
-            </div>
-        </main>
-        <div className="swiper-button-prev "></div>
-        <div className="swiper-button-next"></div>
-        <Swiper
-            modules={[Navigation, Pagination, EffectCoverflow]}
-            effect={"coverflow"}
-            navigation={{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-                enabled:true
-            }}
-
-            pagination={{
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true,
-            }}
-            centeredSlides={true}
-            grabCursor={true}
-            breakpoints={{
-                0: {
-                    slidesPerView: 0.5,
-                },
-                767.8: {
-                    slidesPerView: 1,
-                },
-                1024: {
-                    slidesPerView: 1.5,
-                },
-            }}
-            coverflowEffect={{
-                rotate: 0,
-                stretch: 10,
-                depth: 300,
-                modifier: 5,
-                slideShadows: false,
-            }}
-            initialSlide={currentIndex}
-            onActiveIndexChange={updateIndex}
-            className="w-2/5"
-        >
-            {dummyData.map((e) => (
-                <SwiperSlide key={e.id} className="w-full">
+            <main className="flex justify-center items-center">
+                <div className="w-1/2 px-20 py-20">
                     <motion.img
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{
-                            duration: 5,
-                            repeat: Infinity,
+                        animate={{
+                            scale: [1, 1.05, 1],
                         }}
-                        src={e.logoImage}
-                        className="w-20 relative z-20 mx-auto cursor-pointer"
+                        transition={{
+                            repeat: Infinity,
+                            duration: 5,
+                        }}
+                        src={getLogo()?.logoImage}
+                        alt={getLogo().title}
+                        className="relative  size-full "
+                        draggable="false"
                     />
-                </SwiperSlide>
-            ))}
-        </Swiper>
-<div className="swiper-pagination"></div>
-    </section>
+                </div>
+                <div className="space-y-4 w-1/2 font-jakarta">
+                    <h5 className="font-bold text-4xl text-secondary300 ">
+                        {getLogo()?.logoDescription}
+                    </h5>
+                    <p className="font-medium text-2xl text-primary300">
+                        {getLogo()?.detailDescription}
+                    </p>
+                </div>
+            </main>
+            <div className="swiper-button-prev "></div>
+            <div className="swiper-button-next"></div>
+            <Swiper
+                modules={[Navigation, Pagination, EffectCoverflow]}
+                effect={"coverflow"}
+                navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                    enabled: true,
+                }}
+                pagination={{
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true,
+                }}
+                centeredSlides={true}
+                grabCursor={true}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 0.5,
+                    },
+                    767.8: {
+                        slidesPerView: 1,
+                    },
+                    1024: {
+                        slidesPerView: 1.5,
+                    },
+                }}
+                coverflowEffect={{
+                    rotate: 0,
+                    stretch: 10,
+                    depth: 300,
+                    modifier: 5,
+                    slideShadows: false,
+                }}
+                initialSlide={currentIndex}
+                onActiveIndexChange={updateIndex}
+                className="w-2/5"
+            >
+                {dummyData.map((e) => (
+                    <SwiperSlide key={e.id} className="w-full">
+                        <motion.img
+                            animate={{ y: [0, -5, 0] }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                            }}
+                            src={e.logoImage}
+                            className="w-20 relative z-20 mx-auto cursor-pointer"
+                        />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <div className="swiper-pagination"></div>
+        </section>
     );
 };
 

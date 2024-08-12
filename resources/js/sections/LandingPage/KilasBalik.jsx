@@ -23,16 +23,16 @@ const KilasBalik = () => {
       <div className=' mt-10 py-5'>
         <Swiper
           effect={'coverflow'}
-          grabCursor={true}
+
           slidesPerView={6}
           loop={true}
-          
+          autoplay={true}
           
           coverflowEffect={{
             rotate: 15,
             stretch: 0,
             depth: -40,
-            modifier: 1.5,
+            modifier: 1,
             slideShadows:false
        
           }}   
@@ -42,12 +42,16 @@ const KilasBalik = () => {
             paddingTop:42,
             paddingBottom:42,
           }}
+        
     
         
         >
           {KilasBalikImage.map((image, index) => (
             <SwiperSlide key={index} className=' flex items-center justify-center'>
-              <img src={image} loading='lazy' className='w-full aspect-[5/4] object-cover  rounded-sm bg-yellow-100' alt={`Slide ${index + 1}`} />
+              <div className='w-full aspect-[5/4] overflow-hidden group hover:shadow-lg duration-200 ease-in-out '>
+              <img src={image}  className='size-full group-hover:scale-105 duration-200 ease-in-out object-cover  rounded-sm bg-yellow-100' alt={`Slide ${index + 1}`} />
+
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
