@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LogoImage from '../../assets/logotext.svg';
+import LogoImage from '../../assets/logotext.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,8 +20,8 @@ const Navbar = () => {
   return (
     <nav className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out bg-transparent text-primary300 bg-white ${isScrolled ? 'bg-opacity-50  backdrop-blur-sm' : ' '}`}>
       <main className='flex container mx-auto justify-between'>
-        <img src={LogoImage} draggable='false' alt="logo" className='w-52 rounded-b-md bg-primary500' />
-        <ul className='flex gap-10  items-center text-lg font-medium'>
+        <img src={LogoImage} draggable='false' alt="logo" className='w-52 rounded-b-md py-2' />
+        <ul className='lg:flex gap-10 hidden  items-center text-lg font-medium'>
           {navItems.map((item, index) => (
             <NavItem key={index}>{item}</NavItem>
           ))}
