@@ -18,7 +18,7 @@ const Navbar = () => {
   const navItems = ['Beranda', 'Galeri', 'FAQ'];
 
   return (
-    <nav className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out bg-transparent text-primary300 bg-white ${isScrolled ? 'bg-opacity-50  backdrop-blur-sm' : ' '}`}>
+    <nav className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out  text-primary300 bg-transparent ${isScrolled ? 'bg-opacity-50  backdrop-blur-sm' : ' '}`}>
       <main className='flex container mx-auto justify-between'>
         <img src={LogoImage} draggable='false' alt="logo" className='w-52 rounded-b-md py-2' />
         <ul className='lg:flex gap-10 hidden  items-center text-lg font-medium'>

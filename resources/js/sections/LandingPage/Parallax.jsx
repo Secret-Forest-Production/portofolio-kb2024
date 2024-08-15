@@ -35,10 +35,11 @@ const Parallax = () => {
                 initial={{}}
                 style={{
                     y: y,
+                    translateY:'27%'
                 }}
                 src={parallaxImage}
                 alt="parallax"
-                className=" absolute translate-y-1/2 "
+                className=" absolute  "
                 draggable="false"
             />
             <img
