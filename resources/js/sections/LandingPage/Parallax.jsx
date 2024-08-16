@@ -17,7 +17,7 @@ const Parallax = () => {
     return (
         <motion.section
             ref={target}
-            className="lg:h-[120vh] relative flex items-end "
+            className="lg:h-[120vh] h-screen relative flex items-end "
         >
             <img
                 src={Decoration}
