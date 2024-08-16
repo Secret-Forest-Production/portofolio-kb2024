@@ -12,7 +12,7 @@ const Medpar = () => {
         <section className="py-10 space-y-4  font-jakarta">
             <div className="flex container mx-auto flex-col gap-4 items-center">
                 <img src={DekorAtas} alt="dekoratas" draggable="false" />
-                <h1 className="font-extrabold text-7xl text-primary300">
+                <h1 className="font-extrabold text-3xl text-center lg:text-7xl text-primary300">
                     OUR SPONSOR
                 </h1>
             </div>
@@ -28,7 +28,7 @@ const Medpar = () => {
             </Marquee>
 
             <div className="flex flex-col container mx-auto gap-4 items-center">
-                <h1 className="font-extrabold text-7xl text-primary300">
+                <h1 className="font-extrabold text-3xl text-center lg:text-7xl text-primary300">
                     AND MEDIA PARTNER
                 </h1>
                 <img src={DekorBawah} alt="dekorbawah" draggable="false" />
