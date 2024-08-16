@@ -17,7 +17,7 @@ const Parallax = () => {
     return (
         <motion.section
             ref={target}
-            className="h-[120vh] relative flex items-end "
+            className="lg:h-[120vh] relative flex items-end "
         >
             <img
                 src={Decoration}
@@ -45,7 +45,7 @@ const Parallax = () => {
             <img
                 src={awan}
                 alt="awan"
-                className="scale-125 z-40 absolute bottom-0 translate-y-2/4"
+                className="lg:scale-125  z-40 absolute bottom-0 translate-y-2/4"
                 draggable="false"
             />
         </motion.section>
