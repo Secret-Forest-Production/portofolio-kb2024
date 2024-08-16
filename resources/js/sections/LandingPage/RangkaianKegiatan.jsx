@@ -7,12 +7,12 @@ import TextImage from "../../../assets/Rangkaian Kegiatan Pelestarian Budaya.png
 import { motion } from "framer-motion";
 const RangkaianKegiatan = () => {
     return (
-        <section className="lg:py-64 flex items-center relative justify-center ">
+        <section className="lg:py-64 py-10 flex items-center relative justify-center  overflow-hidden">
             <main className="container mx-auto  ">
                 <div className="  absolute top-0 left-0 flex w-full flex-col items-center justify-center rounded-lg ">
                     <Meteors />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-4">
                     <p className=" font-jakarta text-xl text-secondary500 font-medium flex gap-2 items-center">
                         {" "}
                         <img draggable="false" src={Logo} alt="" /> Kampung
@@ -28,7 +28,7 @@ const RangkaianKegiatan = () => {
                         alt="rangkaian kegiatan pelestarian budaya"
                     />
                 </div>
-                <div className="flex justify-between items-center ">
+                <div className="flex justify-between items-center mt-4 lg:mt-0 ">
                     <motion.img
                         animate={{
                             y:[10,0,10,0,10]
@@ -43,7 +43,7 @@ const RangkaianKegiatan = () => {
                         src={dekorKiri}
                         alt="dekor"
                     />
-                    <p className="text-xl  text-balance  text-text text-center">
+                    <p className="lg:text-xl text-xs  text-balance  text-text text-center">
                         Dilaksanakan oleh Kementerian Dalam Negeri Eksekutif
                         Mahasiswa Universitas Brawijaya yang didalamnya terdapat
                         rangkaian rangkaian kegiatan seperti:
@@ -63,13 +63,13 @@ const RangkaianKegiatan = () => {
                         alt="dekor"
                     />
                 </div>
-                <div className="space-y-3 font-jakarta  flex flex-col items-center">
-                    <p className="text-xl text-text">Seminar, Podcast</p>
-                    <p className="text-xl text-text">
+                <div className="space-y-3 font-jakarta mt-4 lg:mt-0  flex flex-col items-center">
+                    <p className="lg:text-xl text-xs text-text">Seminar, Podcast</p>
+                    <p className="lg:text-xl text-xs text-text">
                         Lomba lomba budaya, Parade{" "}
                     </p>
-                    <p className="text-xl text-text">Gelora puncak</p>
-                    <p className="text-secondary500 font-jakarta  text-center w-4/5 mx-auto text-xl ">
+                    <p className="lg:text-xl text-xs text-text">Gelora puncak</p>
+                    <p className="text-secondary500 font-jakarta  text-center lg:w-4/5 mx-auto lg:text-xl text-xs ">
                         Yang menjadikan Kampung Budaya sebagai salah satu
                         panggung terbesar untuk Forda dan komunitas budaya untuk
                         unjuk kemampuan dan meraih prestasi.
