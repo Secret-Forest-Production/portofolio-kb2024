@@ -34,7 +34,7 @@ export default function Home() {
                 <div className="bg-white ">
                     <Hero/>
                     <Parallax />
-                    <RangkaianKegiatan />
+                    {/* <RangkaianKegiatan />
                     <section className="">
                         <div className="relative flex h-[500px] w-full flex-col items-center justify-center ">
                             <p className="z-10 whitespace-pre-wrap text-center  tracking-tighter text-transparent font-jakarta text-8xl font-bold bg-clip-text bg-gradient-to-r from-secondary500 via-[#E8CF75] to-secondary500">
@@ -64,7 +64,7 @@ export default function Home() {
                         default_velocity={2}
                         className="font-kampungbudaya text-center text-4xl font-bold tracking-[-0.02em] text-secondary500 drop-shadow-sm  md:text-5xl md:leading-[5rem]"
                     />{" "}
-                    <Medpar />
+                    <Medpar /> */}
                     <section className="h-[300vh]"></section>
                 </div>
             </AppLayout>
