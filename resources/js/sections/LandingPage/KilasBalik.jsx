@@ -13,7 +13,7 @@ const KilasBalik = () => {
 
   return (
     <section className='py-10'>
-      <main className='text-7xl font-jakarta font-extrabold mx-auto text-center container'>
+      <main className='lg:text-7xl text-3xl font-jakarta font-extrabold mx-auto text-center container'>
         <h1 className='text-primary300'>Kilas Balik</h1>
         <h1 className='bg-gradient-to-r from-secondary500 via-[#E8CF75] w-fit bg-clip-text text-transparent h-20 mx-auto to-secondary500'>
           Kampung Budaya 2023
