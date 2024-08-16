@@ -115,7 +115,7 @@ const FilosofiLogo = () => {
         })[0];
     };
     return (
-        <section className="container mx-auto py-10 relative">
+        <section className="container mx-auto space-y-3 py-10 relative">
             <div className="flex justify-between items-center shrink-0">
                 <motion.img
                     whileHover={{
@@ -131,13 +131,13 @@ const FilosofiLogo = () => {
                     }}
                     src={DekorasiKiri}
                     alt="dekorasi"
-                    className=""
+                    className="lg:w-auto w-1/5"
                     draggable="false"
                 />
                 <img
                     src={TextJudul}
                     draggable="false"
-                    className="w-3/5"
+                    className="lg:w-3/5 w-1/2 "
                     alt="Filosofi Logo Kampung Budaya 2024"
                 />
                 <motion.img
@@ -154,12 +154,12 @@ const FilosofiLogo = () => {
                     }}
                     src={DekorasiKanan}
                     alt="dekorasi"
-                    className=""
+                    className="lg:w-auto w-1/5"
                     draggable="false"
                 />
             </div>
-            <main className="flex justify-center items-center">
-                <div className="w-1/2 px-20 py-20">
+            <main className="flex flex-col lg:flex-row justify-center items-center">
+                <div className="lg:w-1/2 lg:px-20 lg:py-20">
                     <motion.img
                         animate={{
                             scale: [1, 1.05, 1],
@@ -170,21 +170,21 @@ const FilosofiLogo = () => {
                         }}
                         src={getLogo()?.logoImage}
                         alt={getLogo().title}
-                        className="relative  size-full "
+                        className="relative size-44 object-contain  lg:size-full "
                         draggable="false"
                     />
                 </div>
-                <div className="space-y-4 w-1/2 font-jakarta">
-                    <h5 className="font-bold text-4xl text-secondary300 ">
+                <div className="lg:space-y-4 space-y-2 lg:w-1/2 font-jakarta">
+                    <h5 className="font-bold text-2xl lg:text-4xl text-secondary300 ">
                         {getLogo()?.logoDescription}
                     </h5>
-                    <p className="font-medium text-2xl text-primary300">
+                    <p className="font-medium text-sm lg:text-2xl text-primary300">
                         {getLogo()?.detailDescription}
                     </p>
                 </div>
             </main>
-            <div className="swiper-button-prev "></div>
-            <div className="swiper-button-next"></div>
+            {/* <div className="swiper-button-prev "></div>
+            <div className="swiper-button-next"></div> */}
             <Swiper
                 modules={[Navigation, Pagination, EffectCoverflow]}
                 effect={"coverflow"}
