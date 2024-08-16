@@ -39,8 +39,8 @@ const Rangkaian = () => {
             src={TextRangkaian} draggable='false' alt="text" className="lg:w-3/5" />
             </div>
             <main className="space-y-4">
-                <img src={Rangkaian1} draggable='false' alt="info-img" className="w-3/5 mx-auto" />
-                <img src={Rangkaian2} draggable='false' alt="info-img" className="w-3/5 mx-auto" />
+                <img src={Rangkaian1} draggable='false' alt="info-img" className="lg:w-3/5 mx-auto" />
+                <img src={Rangkaian2} draggable='false' alt="info-img" className="lg:w-3/5 mx-auto" />
             </main>
         </section>
     );
