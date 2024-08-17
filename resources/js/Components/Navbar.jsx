@@ -1,43 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import LogoImage from '../../assets/logotext.svg';
+import React, { useState, useEffect } from "react";
+import LogoImage from "../../assets/logotext.svg";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
-  const navItems = ['Beranda', 'Galeri', 'FAQ'];
+    const navItems = ["Beranda", "Galeri", "FAQ"];
 
-  return (
-    <nav className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out bg-transparent text-primary300 bg-white ${isScrolled ? 'bg-opacity-50  backdrop-blur-sm' : ' '}`}>
-      <main className='flex container mx-auto justify-between'>
-        <img src={LogoImage} draggable='false' alt="logo" className='w-52 rounded-b-md bg-primary500' />
-        <ul className='flex gap-10  items-center text-lg font-medium'>
-          {navItems.map((item, index) => (
-            <NavItem key={index}>{item}</NavItem>
-          ))}
-          <button className={`text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md `}>
-            Daftar
-          </button>
-        </ul>
-      </main>
-    </nav>
-  );
-}
+    return (
+        <nav
+            className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out bg-transparent text-primary300 bg-white ${
+                isScrolled ? "bg-opacity-50  backdrop-blur-sm" : " "
+            }`}
+        >
+            <main className="flex container mx-auto justify-between">
+                <img
+                    src={LogoImage}
+                    draggable="false"
+                    alt="logo"
+                    className="w-52 rounded-b-md bg-primary500"
+                />
+                <ul className="flex gap-10  items-center text-lg font-medium">
+                    {navItems.map((item, index) => (
+                        <NavItem key={index}>{item}</NavItem>
+                    ))}
+
+                    <button
+                        className={`text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md `}
+                    ></button>
+                </ul>
+            </main>
+        </nav>
+    );
+};
 
 const NavItem = ({ children }) => {
-  return (
-    <li>{children}</li>
-  );
-}
+    return <li>{children}</li>;
+};
 
 export default Navbar;
