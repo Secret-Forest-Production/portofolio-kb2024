@@ -8,6 +8,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Home');
 });
+Route::get('/faq', function () {
+    return Inertia::render('Faq');
+});
 
 
 Route::get('/dashboard', function () {
