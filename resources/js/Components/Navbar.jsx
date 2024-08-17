@@ -30,7 +30,7 @@ const Navbar = () => {
         <img src={LogoImage} draggable='false' alt="logo" className='lg:w-52 w-32 rounded-b-md' />
 
         {/* Mobile Menu Button */}
-        <button className="lg:hidden text-3xl text-primary500" onClick={toggleMobileMenu}>
+        <button className="lg:hidden text-3xl text-primary300" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? <Icon icon="mdi:close" /> : <Icon icon="mdi:menu" />}
         </button>
 
