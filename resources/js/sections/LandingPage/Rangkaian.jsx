@@ -1,8 +1,8 @@
 import React from "react";
 import Mahkota from "../../../assets/mahkota.webp";
 import TextRangkaian from "../../../assets/Rangkaian Kegiatan.png";
-import Rangkaian1 from "../../../assets/rangkaian1.png";
-import Rangkaian2 from "../../../assets/rangkaian2.png";
+import Rangkaian1 from "../../../assets/rangkaian1.webp";
+import Rangkaian2 from "../../../assets/rangkaian2.webp";
 import { motion } from "framer-motion";
 
 const Rangkaian = () => {
