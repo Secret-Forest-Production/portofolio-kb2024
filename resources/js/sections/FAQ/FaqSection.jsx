@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import FaqAccordion from "@/Components/Faq/FaqAccordion";
 import FaqHeader from "@/Components/Faq/FaqHeader";
 import faq from "../../Data/faq.json";
+import background from "../../../assets/backgroundFaq.webp";
 
 const FaqSection = () => {
     const [state, setState] = useState({
@@ -28,12 +29,16 @@ const FaqSection = () => {
         }));
     };
 
-    const filteredFaqs = state.dataQuest.filter((q) => 
-        state.selectedCategory === null || q.id_category === state.selectedCategory
+    const filteredFaqs = state.dataQuest.filter(
+        (q) =>
+            state.selectedCategory === null ||
+            q.id_category === state.selectedCategory
     );
 
     return (
-        <section className="md:h-screen relative flex flex-col md:flex-row items-center justify-between my-32 md:my-16">
+        <section
+            className="md:h-screen relative flex flex-col md:flex-row items-center justify-between my-32 md:my-16"
+        >
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-x-12 lg:gap-x-36 w-full h-full lg:px-32 container">
                 <div
                     ref={faqHeaderRef}
