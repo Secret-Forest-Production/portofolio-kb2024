@@ -152,7 +152,7 @@ const Hero = () => {
                         style={{
                             translateY : "-100%"
                         }}
-                        className="absolute lg:w-auto w-1/5 left-[15%] "
+                        className="absolute lg:w-auto w-1/5 left-[13%] "
                         src={DecorationKiri1}
                         alt="dekorasi-kiri"
                         draggable="false"
