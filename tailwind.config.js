@@ -46,6 +46,10 @@ module.exports = {
                 ],
                 
             },
+            boxShadow: {
+              'custom-shadow': '0px 5px 16px 0px rgba(8, 15, 52, 0.06)',
+              'custom-shadow2' : '0px 1.523px 4.568px 0px rgba(19, 18, 66, 0.07)' 
+            },
             colors: {
                 primary500: "#004140",
                 primary300: "#005E5B",
