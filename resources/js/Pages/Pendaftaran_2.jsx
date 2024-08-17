@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import Bg from "../../assets/bg-pendaftaran.webp";
 
 const Pendaftaran_2 = () => {
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(66); // Step 2, so progress starts at 66%
+    const [files, setFiles] = useState({ formulir: null, bukti: null });
     const handleFileUpload = (e) => {
-        const files = e.target.files;
-        let newProgress = progress;
+        const { name, files: selectedFiles } = e.target;
+        const newFiles = { ...files, [name]: selectedFiles[0] };
+        setFiles(newFiles);
 
-        if (files.length > 0) {
-            if (e.target.name === "formulir") {
-                newProgress = progress < 33 ? 33 : progress;
-            }
-            if (e.target.name === "bukti") {
-                newProgress = progress < 66 ? 66 : 100;
-            }
-        }
+        // Update progress
+        let newProgress = 66;
+        if (newFiles.formulir) newProgress += 17; // Setengah jalan ke step 3
+        if (newFiles.bukti) newProgress += 17; // Penuh jalan ke step 3
         setProgress(newProgress);
+    };
+
+    const handleNextClick = () => {
+        if (files.formulir && files.bukti) {
+            // Logic to navigate to the next step
+            alert("Navigating to the next page...");
+        } else {
+            alert("Unggah semua file terlebih dahulu.");
+        }
     };
     return (
         <>
@@ -33,32 +40,28 @@ const Pendaftaran_2 = () => {
                     <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
                         <div className="flex justify-between items-center mb-8">
                             <div className="relative">
-                                <span
-                                    className={`w-8 h-8 flex items-center justify-center ${
-                                        progress >= 33
-                                            ? "bg-yellow-400"
-                                            : "bg-gray-300"
-                                    } rounded-full text-white font-bold`}
-                                >
+                                <span className="w-8 h-8 flex items-center justify-center bg-yellow-400 rounded-full text-white font-bold">
                                     1
                                 </span>
-                                {progress > 33 && (
-                                    <span className="absolute top-0 left-8 h-1.5 w-16 bg-yellow-400"></span>
-                                )}
-                            </div>
-                            <div className="relative">
                                 <span
-                                    className={`w-8 h-8 flex items-center justify-center ${
+                                    className={`absolute top-0 left-8 h-1.5 ${
                                         progress >= 66
                                             ? "bg-yellow-400"
                                             : "bg-gray-300"
-                                    } rounded-full text-white font-bold`}
-                                >
+                                    } w-16`}
+                                ></span>
+                            </div>
+                            <div className="relative">
+                                <span className="w-8 h-8 flex items-center justify-center bg-yellow-400 rounded-full text-white font-bold">
                                     2
                                 </span>
-                                {progress > 66 && (
-                                    <span className="absolute top-0 left-8 h-1.5 w-16 bg-yellow-400"></span>
-                                )}
+                                <span
+                                    className={`absolute top-0 left-8 h-1.5 ${
+                                        progress > 66
+                                            ? "bg-yellow-400"
+                                            : "bg-gray-300"
+                                    } w-16`}
+                                ></span>
                             </div>
                             <span
                                 className={`w-8 h-8 flex items-center justify-center ${
@@ -79,6 +82,10 @@ const Pendaftaran_2 = () => {
                                     document.getElementById("formulir").click()
                                 }
                             >
+                                {/* <Icon
+                                    icon={mdiUpload}
+                                    className="inline-block mr-2"
+                                /> */}
                                 Formulir Pendaftaran
                             </label>
                             <input
@@ -94,7 +101,9 @@ const Pendaftaran_2 = () => {
                                     document.getElementById("formulir").click()
                                 }
                             >
-                                Unggah file
+                                {files.formulir
+                                    ? files.formulir.name
+                                    : "Unggah file"}
                             </div>
                         </div>
 
@@ -106,6 +115,10 @@ const Pendaftaran_2 = () => {
                                     document.getElementById("bukti").click()
                                 }
                             >
+                                {/* <Icon
+                                    icon={mdiUpload}
+                                    className="inline-block mr-2"
+                                /> */}
                                 Bukti Pembayaran
                             </label>
                             <input
@@ -121,11 +134,19 @@ const Pendaftaran_2 = () => {
                                     document.getElementById("bukti").click()
                                 }
                             >
-                                Unggah file
+                                {files.bukti ? files.bukti.name : "Unggah file"}
                             </div>
                         </div>
 
-                        <button className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 focus:outline-none">
+                        <button
+                            className={`w-full py-2 rounded-lg text-white ${
+                                files.formulir && files.bukti
+                                    ? "bg-teal-600 hover:bg-teal-700"
+                                    : "bg-gray-400 cursor-not-allowed"
+                            }`}
+                            onClick={handleNextClick}
+                            disabled={!files.formulir || !files.bukti}
+                        >
                             Selanjutnya
                         </button>
                     </div>
