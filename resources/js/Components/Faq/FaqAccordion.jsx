@@ -48,7 +48,7 @@ const FaqAccordion = ({ id, active, toggle, quest, answer }) => {
                         className="scroll-hidden" 
                     >
                         <motion.p
-                            className="font-montserrat-light font-bold text-base leading-normal text-gray px-4 scroll-auto" // Tambahkan kelas ini
+                            className="font-montserrat-light font-bold text-base leading-normal text-gray px-4 scroll-auto" 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
