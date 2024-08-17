@@ -30,6 +30,9 @@ module.exports = {
         'jakarta': ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
         'playfair': ['Playfair Display', ...defaultTheme.fontFamily.serif],
         'kampungbudaya': ['KampungBudaya', ...defaultTheme.fontFamily.serif],
+        'lora': ['lora', ...defaultTheme.fontFamily.serif],
+        'montserrat': ['montserrat', ...defaultTheme.fontFamily.serif],
+        'montserrat-light': ['montserrat-light', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         primary500: '#004140',
@@ -39,7 +42,8 @@ module.exports = {
         secondary300: '#D3B854',
         text: '#7A7A7A',
         white: '#FBFBFB',
-        
+        green : "#206F57",
+        gray : "#575757"
     },
       keyframes: {
         marquee: {
