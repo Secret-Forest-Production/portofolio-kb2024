@@ -6,18 +6,18 @@ import background from "../../assets/backgroundFaq.webp";
 const FaqLayout = ({ children }) => {
     return (
         <div
+            className="min-h-[1650px] md:min-h-screen"
             style={{
                 backgroundImage: `url(${background})`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
-                minHeight: "100vh",
                 width: "100%",
-                display: 'flex',
-                flexDirection: 'column',
+                display: "flex",
+                flexDirection: "column",
             }}
         >
             <Navbar />
-            <main style={{ flex: 1 }}>
+            <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                 {children}
             </main>
             <Footer />
