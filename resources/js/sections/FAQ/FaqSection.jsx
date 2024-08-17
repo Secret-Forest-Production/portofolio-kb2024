@@ -33,17 +33,20 @@ const FaqSection = () => {
     );
 
     return (
-        <section className="md:h-screen relative flex flex-col md:flex-row items-center justify-between my-32 md:my-16">
+        <section className="h-auto mt-32 md:h-screen relative flex flex-col md:flex-row items-center justify-between md:my-16">
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-x-12 lg:gap-x-36 w-full h-full lg:px-32 container">
+                <h1 className="block md:hidden text-5xl font-lora font-bold mb-12 text-secondary500">
+                    Frequently Ask Questions
+                </h1>
                 <div
                     ref={faqHeaderRef}
-                    className="w-full lg:w-1/2 md:h-[85%] mb-8 md:mb-0"
+                    className="w-full lg:w-1/2 md:h-[85%] mb-8 md:mb-0 hidden md:block"
                 >
                     <FaqHeader />
                 </div>
                 <div
                     ref={faqAccordionRef}
-                    className="w-full lg:w-1/2 flex flex-col space-y-4 md:overflow-auto md:h-[800px] snap-y snap-mandatory"
+                    className="w-full h-full lg:w-1/2 flex flex-col space-y-4 md:overflow-auto md:h-[800px] snap-y snap-mandatory no-scrollbar"
                     style={{ height: headerHeight }}
                 >
                     {filteredFaqs.map((e) => (
