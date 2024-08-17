@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Inertia } from "@inertiajs/inertia"; // Import Inertia
 import ShimmerButton from "@/Components/magicui/shimmer-button";
 import Bg from "../../assets/bg-pendaftaran.webp";
 import modatradisional from "../../assets/busana-kreasi.webp";
@@ -24,6 +25,7 @@ const Pendaftaran = () => {
     const [selectedImage, setSelectedImage] = useState(images[0]);
     const [selectedId, setSelectedId] = useState(images[0].id);
     const [fade, setFade] = useState(true);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setSelectedId((prevId) => {
@@ -35,28 +37,37 @@ const Pendaftaran = () => {
 
         return () => clearInterval(interval);
     }, []);
+
     const handleChangeImage = (index) => {
         setFade(false);
         setTimeout(() => {
-            setCurrentImage(index);
+            setSelectedImage(images[index]);
+            setSelectedId(images[index].id);
             setFade(true);
         }, 300);
     };
+
+    const handleButtonClick = () => {
+        Inertia.visit(
+            `/pendaftaran/${encodeURIComponent(selectedImage.title)}`
+        );
+    };
+
     return (
         <>
             <section
-                className="min-h-screen  bg-cover bg-center bg-no-repeat z-40"
+                className="min-h-screen bg-cover bg-center bg-no-repeat z-40"
                 style={{ backgroundImage: `url(${Bg})` }}
             >
                 {/* Header */}
-                <header className="text-center  font-jakarta font-bold pt-32 ">
+                <header className="text-center font-jakarta font-bold pt-32">
                     <h2 className="text-5xl text-secondary500">Lomba Umum &</h2>
                     <h2 className="text-5xl text-primary300">Forum Daerah</h2>
                     <p className="mt-3 text-md text-primary300 font-normal">
                         Panggung terbesar untuk Forda dan komunitas budaya untuk
                         unjuk
                     </p>
-                    <p className=" text-md text-primary300 font-normal">
+                    <p className="text-md text-primary300 font-normal">
                         kemampuan dan meraih prestasi.
                     </p>
                 </header>
@@ -74,13 +85,12 @@ const Pendaftaran = () => {
                         />
 
                         <ShimmerButton
-                            className="absolute bottom-10 left-1/2 transform -translate-x-1/2  text-white px-6 py-2 rounded-full  hover:bg-primary100"
+                            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white px-6 py-2 rounded-full hover:bg-primary100"
                             background="#004140"
                             shimmerSize="0.09em"
+                            onClick={handleButtonClick}
                         >
-                            <span className="relative">
-                                Lanjutkan Pendaftaran
-                            </span>
+                            Lanjutkan Pendaftaran
                         </ShimmerButton>
                     </div>
 
@@ -88,13 +98,10 @@ const Pendaftaran = () => {
                     <div className="grid grid-rows-3 gap-8 max-w-xs ml-8 font-jakarta text-primary300 font-bold">
                         {/* Kotak Videografi */}
                         <div
-                            className={`relative cursor-pointer  bg-white shadow-lg rounded-lg flex items-center justify-center h-24 w-40 ml-20 hover:bg-gray-200 ${
+                            className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-24 w-40 ml-20 hover:bg-gray-200 ${
                                 selectedId === 2 ? "bg-secondary500" : ""
                             }`}
-                            onClick={() => {
-                                setSelectedImage(images[1]);
-                                setSelectedId(2);
-                            }}
+                            onClick={() => handleChangeImage(1)}
                         >
                             <img
                                 src={logoVideografi}
@@ -112,10 +119,7 @@ const Pendaftaran = () => {
                                 className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-24 hover:bg-gray-200 ${
                                     selectedId === 3 ? "bg-primary500" : ""
                                 }`}
-                                onClick={() => {
-                                    setSelectedImage(images[2]);
-                                    setSelectedId(3);
-                                }}
+                                onClick={() => handleChangeImage(2)}
                             >
                                 <img
                                     src={logoTariTradisional}
@@ -130,10 +134,7 @@ const Pendaftaran = () => {
                                 className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-24 hover:bg-gray-200 ${
                                     selectedId === 4 ? "bg-primary500" : ""
                                 }`}
-                                onClick={() => {
-                                    setSelectedImage(images[3]);
-                                    setSelectedId(4);
-                                }}
+                                onClick={() => handleChangeImage(3)}
                             >
                                 <img
                                     src={logoBusanaKreasi}
@@ -152,10 +153,7 @@ const Pendaftaran = () => {
                                 className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-24 hover:bg-gray-200 ${
                                     selectedId === 5 ? "bg-primary500" : ""
                                 }`}
-                                onClick={() => {
-                                    setSelectedImage(images[4]);
-                                    setSelectedId(5);
-                                }}
+                                onClick={() => handleChangeImage(4)}
                             >
                                 <img
                                     src={logoBazarKebudayaan}
@@ -170,17 +168,14 @@ const Pendaftaran = () => {
                                 className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-24 hover:bg-gray-200 ${
                                     selectedId === 6 ? "bg-primary500" : ""
                                 }`}
-                                onClick={() => {
-                                    setSelectedImage(images[5]);
-                                    setSelectedId(6);
-                                }}
+                                onClick={() => handleChangeImage(5)}
                             >
                                 <img
                                     src={logoCeritaNusantara}
                                     alt="Cerita Nusantara"
                                     className="h-24 -mt-8 object-contain"
                                 />
-                                <p className="absolute text-center text-md  font-semibold w-full mt-32">
+                                <p className="absolute text-center text-md font-semibold w-full mt-32">
                                     Cerita Nusantara
                                 </p>
                             </div>
