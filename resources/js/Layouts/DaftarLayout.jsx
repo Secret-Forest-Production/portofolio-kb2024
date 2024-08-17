@@ -3,7 +3,7 @@ import Navbar from "@/Components/Navbar";
 import React from "react";
 import background from "../../assets/backgroundFaq.webp";
 
-const FaqLayout = ({ children }) => {
+const DaftarLayout = ({ children }) => {
     return (
         <div
             className="min-h-[1650px] md:min-h-screen"
@@ -25,4 +25,4 @@ const FaqLayout = ({ children }) => {
     );
 };
 
-export default FaqLayout;
+export default DaftarLayout;

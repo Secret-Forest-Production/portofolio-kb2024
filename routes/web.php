@@ -12,7 +12,6 @@ Route::get('/faq', function () {
     return Inertia::render('Faq');
 });
 
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -31,6 +30,15 @@ Route::get('/pendaftaran2', function () {
 });
 Route::get('/pendaftaran3', function () {
     return Inertia::render('Pendaftaran_3');
+});
+Route::get('/pendaftaran/1', function () {
+    return Inertia::render('Daftar');
+});
+
+Route::get('/pendaftaran/{title}', function ($title) {
+    return Inertia::render('Pendaftaran', [
+        'title' => $title,
+    ]);
 });
 
 require __DIR__.'/auth.php';

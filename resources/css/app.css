@@ -31,3 +31,7 @@
     font-family: "montserrat-light";
     src: url('../assets/Font/Montserrat/static/Montserrat-Light.ttf') format('opentype');
 }
+@font-face {
+    font-family: "poppins-light";
+    src: url('../assets/Font/Poppins/Poppins-Light.ttf') format('opentype');
+}
