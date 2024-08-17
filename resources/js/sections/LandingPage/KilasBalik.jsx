@@ -23,8 +23,21 @@ const KilasBalik = () => {
       <div className=' mt-10 py-5'>
         <Swiper
           effect={'coverflow'}
+          breakpoints={{
+            0: {
+              slidesPerView: 3,
+              spaceBetween: 10
+            },
+            1024: {
+              slidesPerView: 6,
+              spaceBetween: 24
+            },
+           
+           
+            
+        
+          }}
 
-          slidesPerView={6}
           loop={true}
           autoplay={true}
           
