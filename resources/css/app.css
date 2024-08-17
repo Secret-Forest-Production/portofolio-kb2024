@@ -7,4 +7,15 @@
     font-family: "KampungBudaya";
     src: url('../assets/Font/KambudFixx-Regular.otf') format('opentype');
 }
-  
+@font-face {
+    font-family: "lora";
+    src: url('../assets/Font/Lora/static/Lora-SemiBold.ttf') format('opentype');
+}
+@font-face {
+    font-family: "montserrat";
+    src: url('../assets/Font/Montserrat/static/Montserrat-SemiBold.ttf') format('opentype');
+}
+@font-face {
+    font-family: "montserrat-light";
+    src: url('../assets/Font/Montserrat/static/Montserrat-Light.ttf') format('opentype');
+}
