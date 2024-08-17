@@ -9,7 +9,7 @@ const Parallax = () => {
     const target = useRef(null);
     const { scrollYProgress } = useScroll({
         target: target,
-        offset: ["start end", "start start"],
+        offset: window.innerWidth>768?["start end",  "start start"]:['start end','end end'],
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [400, 0]);
@@ -17,7 +17,7 @@ const Parallax = () => {
     return (
         <motion.section
             ref={target}
-            className="lg:h-[120vh] h-screen relative flex items-end "
+            className="lg:h-[120vh] h-[40vh] relative flex items-end "
         >
             <img
                 src={Decoration}
@@ -42,6 +42,7 @@ const Parallax = () => {
                 className=" absolute  "
                 draggable="false"
             />
+           
             <img
                 src={awan}
                 alt="awan"
