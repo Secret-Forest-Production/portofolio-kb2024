@@ -59,11 +59,14 @@ export default function Home() {
                     <KilasBalik />
                     <Rangkaian />
                     <Daftar />
+                    <section className="py-20">
                     <VelocityScroll
                         text="Bekasi Padang Jakarta Malang Lombok"
                         default_velocity={2}
                         className="font-kampungbudaya text-center text-4xl font-bold tracking-[-0.02em] text-secondary500 drop-shadow-sm  md:text-5xl md:leading-[5rem]"
                     />{" "}
+
+                    </section>
                     <Medpar />
                     <section className="h-[300vh]"></section>
                 </div>
