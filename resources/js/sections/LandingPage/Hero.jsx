@@ -32,7 +32,7 @@ const Hero = () => {
                                 top: "300%",
                             }}
                             animate={{
-                                top: "15%",
+                                top: window.innerWidth>768?"15%":'0%',
                             }}
                             
                             
@@ -57,7 +57,7 @@ const Hero = () => {
                             top: "300%",
                         }}
                         animate={{
-                            top: "150%",
+                            top: window.innerWidth>768?"150%":"170%",
                         }}
                         whileHover={{
                             scale: 1.1
@@ -84,7 +84,7 @@ const Hero = () => {
                             top: "300%",
                         }}
                         animate={{
-                            top: "50%",
+                            top: window.innerWidth>768?"50%":"120%",
                         }}
                         whileHover={{
                             scale: 1.1
@@ -139,7 +139,7 @@ const Hero = () => {
                             top: "300%",
                         }}
                         animate={{
-                            top: "60%",
+                            top: window.innerWidth>768?"60%":'10%',
                         }}
                         whileHover={{
                             scale: 1.1
@@ -162,7 +162,7 @@ const Hero = () => {
                             top: "300%",
                         }}
                         animate={{
-                            top: "50%",
+                            top: window.innerWidth>768?"50%":'-50%',
                         }}
                         whileHover={{
                             scale: 1.1
