@@ -1,14 +1,18 @@
 import DaftarSection from "@/sections/Daftar/DaftarSection";
 import DaftarLayout from "@/Layouts/DaftarLayout";
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import React from "react";
 
 const Daftar = () => {
+    const { props } = usePage();
+    const { jenisLomba } = props;
+
+    console.log(props)
     return (
         <>
-            <Head title="Faq" />
+            <Head title="Daftar" />
             <DaftarLayout>
-                <DaftarSection/>
+                <DaftarSection jenisLomba={jenisLomba}/>
             </DaftarLayout>
         </>
     );
