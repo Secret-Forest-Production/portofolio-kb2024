@@ -21,7 +21,7 @@ const Parallax = () => {
         >
             <img
                 src={Decoration}
-                className="w-full absolute top-0 left-0 -translate-y-1/4"
+                className="w-full absolute top-0 left-0 -translate-y-[50%]"
                 draggable="false"
                 alt="decoration"
             />
@@ -30,7 +30,7 @@ const Parallax = () => {
                 alt="background"
                 className="size-full object-cover"
                 draggable="false"
-            />
+            />x
             <motion.img
                 initial={{}}
                 style={{

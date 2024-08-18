@@ -28,22 +28,18 @@ Route::middleware('auth')->group(function () {
 Route::get('/pendaftaran', function () {
     return Inertia::render('Pendaftaran');
 })->name('daftar');
-// Route::get('/pendaftaran/step2', function () {
-//     return Inertia::render('Pendaftaran_2');
-// })->name('daftar2');
-Route::get('/pendaftaran/step2', function () {
-    return Inertia::render('Pendaftaran_3');
-})->name('daftar2');
+
 Route::get('/pendaftaran/step1/{jenisLomba}', function ($jenisLomba) {
     return Inertia::render('Daftar', [
         'jenisLomba' => $jenisLomba
     ]);
 })->name('daftar1');
-
-Route::get('/pendaftaran/{title}', function ($title) {
-    return Inertia::render('Pendaftaran', [
-        'title' => $title,
+Route::get('/pendaftaran/step2/{jenisLomba}', function ($jenisLomba) {
+    return Inertia::render('Pendaftaran_3', [
+        'jenisLomba' => $jenisLomba
     ]);
-});
+})->name('daftar2');
+
+
 
 require __DIR__.'/auth.php';
