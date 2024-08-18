@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Inertia } from "@inertiajs/inertia";
 import { useNavigate } from "react-router-dom";
+import { Progress } from "flowbite-react";
 
 const DaftarSection = ({ jenisLomba }) => {
     const [formData, setFormData] = useState({
@@ -11,18 +12,16 @@ const DaftarSection = ({ jenisLomba }) => {
         telepon: "",
         instagram: "",
         email: "",
-     bukti : ""
+        bukti: "",
     });
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleNext = () => {
-      
-        localStorage.setItem('formData', JSON.stringify(formData));
+        localStorage.setItem("formData", JSON.stringify(formData));
 
-        navigate('/pendaftaran/step2');
+        navigate("/pendaftaran/step2");
     };
-
 
     return (
         <section className="my-0 md:mb-24">
@@ -121,8 +120,6 @@ const DaftarSection = ({ jenisLomba }) => {
                         </div>
 
                         <div className="mb-4 flex gap-4">
-
-
                             <div className="w-1/2">
                                 <label
                                     className="block text-gray-700 text-sm font-bold mb-2"
@@ -212,9 +209,13 @@ const DaftarSection = ({ jenisLomba }) => {
                                 />
                             </div>
                         </div>
-                <button type="submit" onClick={handleNext} className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta">
-                    Selanjutnya
-                </button>
+                        <button
+                            type="submit"
+                            onClick={handleNext}
+                            className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                        >
+                            Selanjutnya
+                        </button>
                     </form>
                 </div>
             </div>
