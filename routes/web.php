@@ -24,16 +24,18 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/pendaftaran', function () {
     return Inertia::render('Pendaftaran');
-});
-Route::get('/pendaftaran2', function () {
-    return Inertia::render('Pendaftaran_2');
-});
-Route::get('/pendaftaran3', function () {
+})->name('daftar');
+// Route::get('/pendaftaran/step2', function () {
+//     return Inertia::render('Pendaftaran_2');
+// })->name('daftar2');
+Route::get('/pendaftaran/step2', function () {
     return Inertia::render('Pendaftaran_3');
-});
-Route::get('/pendaftaran/1', function () {
-    return Inertia::render('Daftar');
-});
+})->name('daftar2');
+Route::get('/pendaftaran/step1/{jenisLomba}', function ($jenisLomba) {
+    return Inertia::render('Daftar', [
+        'jenisLomba' => $jenisLomba
+    ]);
+})->name('daftar1');
 
 Route::get('/pendaftaran/{title}', function ($title) {
     return Inertia::render('Pendaftaran', [
