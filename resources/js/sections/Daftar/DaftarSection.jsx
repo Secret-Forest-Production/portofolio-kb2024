@@ -33,10 +33,32 @@ const DaftarSection = ({ jenisLomba }) => {
                 Harap isi formulir ini dengan benar
             </p>
             <div className="flex flex-col items-center justify-center relative">
-                <div className="w-full max-w-xl p-8 bg-white rounded-3xl shadow-custom-shadow">
-                    <ProgressBar striped variant="warning" now={60} />
-                    <div className="border-b border-yellow-500 py-4 w-full flex justify-center items-center mb-4"></div>
-                    <form >
+                <div className="w-full max-w-xl p-12 bg-white rounded-3xl shadow-custom-shadow">
+                    <div className="flex items-center justify-center">
+                        <div className="flex flex-col items-center">
+                            <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                1
+                            </div>
+                        </div>
+                        <div className="w-1/4 px-3">
+                            <Progress progress={50} size="md" color="yellow" />
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                2
+                            </div>
+                        </div>
+                        <div className="w-1/4 px-3">
+                            <Progress progress={0} size="md" color="gray" />
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                3
+                            </div>
+                        </div>
+                    </div>
+                    <div className="border-b border-yellow-500 w-full my-8" />
+                    <form>
                         <div className="mb-4">
                             <label
                                 className=" text-gray-700 text-sm font-bold font-jakarta mb-2"
