@@ -7,10 +7,10 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Home');
-});
+})->name('home');
 Route::get('/faq', function () {
     return Inertia::render('Faq');
-});
+})->name('faq');
 
 
 Route::get('/dashboard', function () {
