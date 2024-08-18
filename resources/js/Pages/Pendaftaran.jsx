@@ -12,6 +12,8 @@ import logoTariTradisional from "../../assets/logo-tari-tradisional.png";
 import logoBusanaKreasi from "../../assets/logo-busana-kreasi.png";
 import logoBazarKebudayaan from "../../assets/logo-bazar-kebudayaan.png";
 import logoCeritaNusantara from "../../assets/logo-cerita-nusantara.png";
+import AppLayout from "@/Layouts/AppLayout";
+import { Link } from "@inertiajs/react";
 
 const Pendaftaran = () => {
     const images = [
@@ -26,18 +28,7 @@ const Pendaftaran = () => {
     const [selectedId, setSelectedId] = useState(images[0].id);
     const [fade, setFade] = useState(true);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSelectedId((prevId) => {
-                const nextId = (prevId % images.length) + 1;
-                setSelectedImage(images.find((image) => image.id === nextId));
-                return nextId;
-            });
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, []);
-
+ 
     const handleChangeImage = (index) => {
         setFade(false);
         setTimeout(() => {
@@ -47,20 +38,17 @@ const Pendaftaran = () => {
         }, 300);
     };
 
-    const handleButtonClick = () => {
-        Inertia.visit(
-            `/pendaftaran/${encodeURIComponent(selectedImage.title)}`
-        );
-    };
+ 
 
     return (
         <>
+        <AppLayout>
             <section
-                className="min-h-screen bg-cover bg-center bg-no-repeat z-40"
+                className="min-h-screen bg-cover bg-center bg-no-repeat z-40 py-24"
                 style={{ backgroundImage: `url(${Bg})` }}
-            >
+                >
                 {/* Header */}
-                <header className="text-center font-jakarta font-bold pt-32">
+                <header className="text-center font-jakarta font-bold pt-10">
                     <h2 className="text-5xl text-secondary500">Lomba Umum &</h2>
                     <h2 className="text-5xl text-primary300">Forum Daerah</h2>
                     <p className="mt-3 text-md text-primary300 font-normal">
@@ -82,16 +70,18 @@ const Pendaftaran = () => {
                             className={`rounded-xl shadow-lg w-full h-full transition-opacity duration-300 ${
                                 fade ? "opacity-100" : "opacity-0"
                             }`}
-                        />
+                            />
 
+                        <Link href={route('daftar1',selectedImage.title)}>
                         <ShimmerButton
                             className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white px-6 py-2 rounded-full hover:bg-primary100"
                             background="#004140"
                             shimmerSize="0.09em"
-                            onClick={handleButtonClick}
-                        >
+                     
+                            >
                             Lanjutkan Pendaftaran
                         </ShimmerButton>
+                                </Link>
                     </div>
 
                     {/* List Kotak */}
@@ -102,7 +92,7 @@ const Pendaftaran = () => {
                                 selectedId === 2 ? "bg-secondary500" : ""
                             }`}
                             onClick={() => handleChangeImage(1)}
-                        >
+                            >
                             <img
                                 src={logoVideografi}
                                 alt="Videografi"
@@ -120,12 +110,12 @@ const Pendaftaran = () => {
                                     selectedId === 3 ? "bg-primary500" : ""
                                 }`}
                                 onClick={() => handleChangeImage(2)}
-                            >
+                                >
                                 <img
                                     src={logoTariTradisional}
                                     alt="Tari Tradisional"
                                     className="h-28 -mt-8 object-contain"
-                                />
+                                    />
                                 <p className="absolute text-center text-md font-semibold w-full mt-32">
                                     Tari Tradisional
                                 </p>
@@ -135,12 +125,12 @@ const Pendaftaran = () => {
                                     selectedId === 4 ? "bg-primary500" : ""
                                 }`}
                                 onClick={() => handleChangeImage(3)}
-                            >
+                                >
                                 <img
                                     src={logoBusanaKreasi}
                                     alt="Busana Kreasi"
                                     className="h-28 -mt-8 object-contain"
-                                />
+                                    />
                                 <p className="absolute text-center text-md font-semibold w-full mt-32">
                                     Busana Kreasi
                                 </p>
@@ -154,12 +144,12 @@ const Pendaftaran = () => {
                                     selectedId === 5 ? "bg-primary500" : ""
                                 }`}
                                 onClick={() => handleChangeImage(4)}
-                            >
+                                >
                                 <img
                                     src={logoBazarKebudayaan}
                                     alt="Bazar Kebudayaan"
                                     className="h-40 -mt-12 object-contain"
-                                />
+                                    />
                                 <p className="absolute text-center text-md font-semibold w-full mt-32">
                                     Bazar Kebudayaan
                                 </p>
@@ -169,12 +159,12 @@ const Pendaftaran = () => {
                                     selectedId === 6 ? "bg-primary500" : ""
                                 }`}
                                 onClick={() => handleChangeImage(5)}
-                            >
+                                >
                                 <img
                                     src={logoCeritaNusantara}
                                     alt="Cerita Nusantara"
                                     className="h-24 -mt-8 object-contain"
-                                />
+                                    />
                                 <p className="absolute text-center text-md font-semibold w-full mt-32">
                                     Cerita Nusantara
                                 </p>
@@ -183,6 +173,7 @@ const Pendaftaran = () => {
                     </div>
                 </div>
             </section>
+                                    </AppLayout>
         </>
     );
 };
