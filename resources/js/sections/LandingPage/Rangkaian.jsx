@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const Rangkaian = () => {
     return (
-        <section className="space-y-4 container">
+        <section className="space-y-4 container mx-auto">
             <div className="flex flex-col gap-5 text-secondary300 justify-center items-center">
                 <motion.img
                     animate={{
