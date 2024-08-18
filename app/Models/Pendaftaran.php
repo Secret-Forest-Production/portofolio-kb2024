@@ -13,7 +13,6 @@ class Pendaftaran extends Model
         'name',
         'instansi',
         'lomba',
-        'kategori',
         'telp',
         'instagram',
         'email'

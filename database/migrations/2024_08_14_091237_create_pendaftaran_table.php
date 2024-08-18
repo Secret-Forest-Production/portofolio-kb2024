@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama');
             $table->string('instansi');
             $table->enum('lomba', ['lensa_budaya', 'ekspresi_tubuh', 'moda_tradisional', 'bazar_kebudayaan', 'legenda_nusantara']);
-            $table->enum('kategori', ['forda', 'mahasiswa', 'sma']);
             $table->string('telp');
             $table->string('instagram');
             $table->string('email');
