@@ -9,6 +9,7 @@ const Pendaftaran_2 = () => {
 
     useEffect(() => {
         const savedData = localStorage.getItem("formData");
+
         if (savedData) {
             setFormData(JSON.parse(savedData));
         }
@@ -33,7 +34,7 @@ const Pendaftaran_2 = () => {
     const handleNextClick = () => {
         if (files.formulir && (!needsBuktiPembayaran() || files.bukti)) {
             // Navigate to the next step
-            navigate('/verifikasi-biodata', { state: { files } });
+            navigate("/verifikasi-biodata", { state: { files } });
         } else {
             alert("Unggah semua file yang diperlukan terlebih dahulu.");
         }
@@ -89,7 +90,9 @@ const Pendaftaran_2 = () => {
                         <label
                             className="block text-gray-700 text-sm font-bold mb-2 cursor-pointer"
                             htmlFor="formulir"
-                            onClick={() => document.getElementById("formulir").click()}
+                            onClick={() =>
+                                document.getElementById("formulir").click()
+                            }
                         >
                             Formulir Pendaftaran
                         </label>
@@ -102,9 +105,13 @@ const Pendaftaran_2 = () => {
                         />
                         <div
                             className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-teal-500 cursor-pointer"
-                            onClick={() => document.getElementById("formulir").click()}
+                            onClick={() =>
+                                document.getElementById("formulir").click()
+                            }
                         >
-                            {files.formulir ? files.formulir.name : "Unggah file"}
+                            {files.formulir
+                                ? files.formulir.name
+                                : "Unggah file"}
                         </div>
                         <a
                             href="https://drive.google.com/file/d/your_drive_link"
@@ -119,10 +126,15 @@ const Pendaftaran_2 = () => {
                     <div className="mb-6">
                         <label
                             className={`block text-sm font-bold mb-2 cursor-pointer ${
-                                needsBuktiPembayaran() ? "text-gray-700" : "text-gray-400"
+                                needsBuktiPembayaran()
+                                    ? "text-gray-700"
+                                    : "text-gray-400"
                             }`}
                             htmlFor="bukti"
-                            onClick={() => needsBuktiPembayaran() && document.getElementById("bukti").click()}
+                            onClick={() =>
+                                needsBuktiPembayaran() &&
+                                document.getElementById("bukti").click()
+                            }
                         >
                             Bukti Pembayaran
                         </label>
@@ -136,9 +148,13 @@ const Pendaftaran_2 = () => {
                         />
                         <div
                             className={`w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-teal-500 cursor-pointer ${
-                                !needsBuktiPembayaran() && "bg-gray-100 cursor-not-allowed"
+                                !needsBuktiPembayaran() &&
+                                "bg-gray-100 cursor-not-allowed"
                             }`}
-                            onClick={() => needsBuktiPembayaran() && document.getElementById("bukti").click()}
+                            onClick={() =>
+                                needsBuktiPembayaran() &&
+                                document.getElementById("bukti").click()
+                            }
                         >
                             {files.bukti ? files.bukti.name : "Unggah file"}
                         </div>
@@ -146,12 +162,16 @@ const Pendaftaran_2 = () => {
 
                     <button
                         className={`w-full py-2 rounded-lg text-white ${
-                            files.formulir && (!needsBuktiPembayaran() || files.bukti)
+                            files.formulir &&
+                            (!needsBuktiPembayaran() || files.bukti)
                                 ? "bg-teal-600 hover:bg-teal-700"
                                 : "bg-gray cursor-not-allowed"
                         }`}
                         onClick={handleNextClick}
-                        disabled={!files.formulir || (needsBuktiPembayaran() && !files.bukti)}
+                        disabled={
+                            !files.formulir ||
+                            (needsBuktiPembayaran() && !files.bukti)
+                        }
                     >
                         Selanjutnya
                     </button>

@@ -70,7 +70,7 @@ const Navbar = () => {
 
                 {/* Mobile Navigation */}
                 <ul
-                    className={`lg:hidden fixed top-0 left-0 h-screen py-4 w-3/4 px-2 bg-primary500 text-white text-lg font-medium transform duration-300 ease-in-out ${
+                    className={`lg:hidden fixed top-0 left-0 h-screen py-4 w-3/4 px-2 flex flex-col gap-2 bg-primary500 text-white text-lg font-medium transform duration-300 ease-in-out ${
                         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
                 >
