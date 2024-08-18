@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Bg from "../../assets/bg-pendaftaran.webp";
 
 const Pendaftaran_2 = () => {
     const [progress, setProgress] = useState(0);
+    const [formData, setFormData] = useState({});
+
+    useEffect(() => {
+        const savedData = localStorage.getItem('formData');
+        if (savedData) {
+            setFormData(JSON.parse(savedData));
+        }
+    }, []);
+
+
+    console.log(formData)
     const handleFileUpload = (e) => {
         const files = e.target.files;
         let newProgress = progress;
