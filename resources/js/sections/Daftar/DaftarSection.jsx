@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Inertia } from "@inertiajs/inertia";
 import { useNavigate } from "react-router-dom";
+import { Progress } from "flowbite-react";
 
 const DaftarSection = ({ jenisLomba }) => {
     const [formData, setFormData] = useState({
@@ -11,18 +12,16 @@ const DaftarSection = ({ jenisLomba }) => {
         telepon: "",
         instagram: "",
         email: "",
-     bukti : ""
+        bukti: "",
     });
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleNext = () => {
-      
-        localStorage.setItem('formData', JSON.stringify(formData));
+        localStorage.setItem("formData", JSON.stringify(formData));
 
-        navigate('/pendaftaran/step2');
+        navigate("/pendaftaran/step2");
     };
-
 
     return (
         <section className="my-0 md:mb-24">
@@ -33,10 +32,32 @@ const DaftarSection = ({ jenisLomba }) => {
                 Harap isi formulir ini dengan benar
             </p>
             <div className="flex flex-col items-center justify-center relative">
-                <div className="w-full max-w-xl p-8 bg-white rounded-3xl shadow-custom-shadow">
-                    <ProgressBar striped variant="warning" now={60} />
-                    <div className="border-b border-yellow-500 py-4 w-full flex justify-center items-center mb-4"></div>
-                    <form >
+                <div className="w-full max-w-xl p-12 bg-white rounded-3xl shadow-custom-shadow">
+                    <div className="flex items-center justify-center">
+                        <div className="flex flex-col items-center">
+                            <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                1
+                            </div>
+                        </div>
+                        <div className="w-1/4 px-3">
+                            <Progress progress={50} size="md" color="yellow" />
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                2
+                            </div>
+                        </div>
+                        <div className="w-1/4 px-3">
+                            <Progress progress={0} size="md" color="gray" />
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                3
+                            </div>
+                        </div>
+                    </div>
+                    <div className="border-b border-yellow-500 w-full my-8" />
+                    <form>
                         <div className="mb-4">
                             <label
                                 className=" text-gray-700 text-sm font-bold font-jakarta mb-2"
@@ -99,8 +120,6 @@ const DaftarSection = ({ jenisLomba }) => {
                         </div>
 
                         <div className="mb-4 flex gap-4">
-
-
                             <div className="w-1/2">
                                 <label
                                     className="block text-gray-700 text-sm font-bold mb-2"
@@ -190,9 +209,13 @@ const DaftarSection = ({ jenisLomba }) => {
                                 />
                             </div>
                         </div>
-                <button type="submit" onClick={handleNext} className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta">
-                    Selanjutnya
-                </button>
+                        <button
+                            type="submit"
+                            onClick={handleNext}
+                            className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                        >
+                            Selanjutnya
+                        </button>
                     </form>
                 </div>
             </div>
