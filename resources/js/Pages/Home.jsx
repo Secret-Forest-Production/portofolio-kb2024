@@ -68,7 +68,6 @@ export default function Home() {
 
                     </section>
                     <Medpar />
-                    <section className="h-[300vh]"></section>
                 </div>
             </AppLayout>
         </>
