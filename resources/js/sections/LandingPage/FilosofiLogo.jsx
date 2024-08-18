@@ -144,10 +144,10 @@ const FilosofiLogo = () => {
                 </Swiper>
                 <div
                     id="custom-swiper-button-prev"
-                    className="custom-swiper-button-prev absolute border rounded-full p-2 left-0 top-1/2 z-30 -translate-y-1/2  cursor-pointer transition-transform active:scale-90 bg-white shadow-2xl drop-shadow-2xl"
+                    className="custom-swiper-button-prev absolute  rounded-full p-2 left-0 top-1/2 z-30 -translate-y-1/2  cursor-pointer transition-transform active:scale-90 bg-white shadow-2xl drop-shadow-2xl"
 
                     style={{
-                        filter: 'drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.6))',
+                        filter: 'drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.2))',
                     }}
                 
                 >
@@ -158,9 +158,9 @@ const FilosofiLogo = () => {
                 </div>
                 <div
                     id="custom-swiper-button-next"
-                    className="custom-swiper-button-next absolute border rounded-full p-2 right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer transition-transform active:scale-90 bg-white shadow-2xl drop-shadow-2xl"
+                    className="custom-swiper-button-next absolute  rounded-full p-2 right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer transition-transform active:scale-90 bg-white shadow-2xl drop-shadow-2xl"
                     style={{
-                        filter: 'drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.6))',
+                        filter: 'drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.2))',
                     }}
                 
                 >

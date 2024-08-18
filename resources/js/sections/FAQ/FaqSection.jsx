@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import FaqAccordion from "@/Components/Faq/FaqAccordion";
 import FaqHeader from "@/Components/Faq/FaqHeader";
 import faq from "../../Data/faq.json";
+import background from "../../../assets/backgroundFaq.webp";
 
 const FaqSection = () => {
     const [state, setState] = useState({
@@ -28,19 +29,21 @@ const FaqSection = () => {
         }));
     };
 
-    const filteredFaqs = state.dataQuest.filter((q) => 
-        state.selectedCategory === null || q.id_category === state.selectedCategory
+    const filteredFaqs = state.dataQuest.filter(
+        (q) =>
+            state.selectedCategory === null ||
+            q.id_category === state.selectedCategory
     );
 
     return (
         <section className="h-auto mt-32 md:h-screen relative flex flex-col md:flex-row items-center justify-between md:my-16">
             <div className="flex flex-col md:flex-row items-center justify-center md:gap-x-12 lg:gap-x-36 w-full h-full lg:px-32 container">
-                <h1 className="block md:hidden text-5xl font-lora font-bold mb-12 text-secondary500">
+                <h1 className="block md:hidden px-2 text-4xl font-bold mb-4 font-montserrat text-secondary500">
                     Frequently Ask Questions
                 </h1>
                 <div
                     ref={faqHeaderRef}
-                    className="w-full lg:w-1/2 md:h-[85%] mb-8 md:mb-0 hidden md:block"
+                    className="w-full lg:w-1/2 md:h-[85%] hidden md:block"
                 >
                     <FaqHeader />
                 </div>

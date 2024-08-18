@@ -1,7 +1,7 @@
 import { Head } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import Parallax from "@/sections/LandingPage/Parallax";
-
+import background from "../../assets/backgroundFaq.webp"
 import Ripple from "@/Components/magicui/ripple";
 import maskot from "../../assets/maskot.png";
 import wave from "../../assets/wave.png";
@@ -31,7 +31,7 @@ export default function Home() {
         <>
             <Head title="home" />
             <AppLayout>
-                <div className="bg-white ">
+                <div className="bg-white">
                     <Hero/>
                     <Parallax />
                     <RangkaianKegiatan />
@@ -68,7 +68,6 @@ export default function Home() {
 
                     </section>
                     <Medpar />
-                    <section className="h-[300vh]"></section>
                 </div>
             </AppLayout>
         </>

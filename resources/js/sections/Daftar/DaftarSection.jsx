@@ -1,55 +1,85 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import { Inertia } from "@inertiajs/inertia";
+import { useNavigate } from "react-router-dom";
 import { Progress } from "flowbite-react";
 
-const DaftarSection = () => {
+const DaftarSection = ({ jenisLomba }) => {
     const [formData, setFormData] = useState({
         nama: "",
-        kategori: "",
-        asalInstansi: "",
-        tempatTanggalLahir: "",
-        nomorHandphone: "",
+        lomba: jenisLomba,
+        instansi: "",
+        telepon: "",
         instagram: "",
         email: "",
+        bukti: "",
+        kategori: "",
     });
 
+    const navigate = useNavigate();
+
+    const handleNext = (event) => {
+        // event.preventDefault();
+        localStorage.setItem("formData", JSON.stringify(formData));
+        navigate(`/pendaftaran/step2/${jenisLomba}`);
+    };
+
+    useEffect(() => {
+        if (jenisLomba === "Videografi") {
+            setFormData((prevData) => ({
+                ...prevData,
+                kategori: "Mahasiswa Nasional",
+            }));
+        }
+        if (
+            jenisLomba === "Persembahan Moda Tradisional" ||
+            jenisLomba === "Busana Kreasi" ||
+            jenisLomba === "Tari Tradisional" ||
+            jenisLomba === "Bazar Kebudayaan"
+        ) {
+            setFormData((prevData) => ({
+                ...prevData,
+                kategori: "Forum Daerah",
+            }));
+        }
+        if (jenisLomba === "Cerita Nusantara" || jenisLomba === "") {
+            setFormData((prevData) => ({
+                ...prevData,
+                kategori: "SMA/Sederajat",
+            }));
+        }
+    }, [jenisLomba]);
+    // console.log(formData);
     return (
         <section className="my-0 md:mb-24">
-            <h2 className="text-3xl font-bold text-center text-primary100 pt-32 font-jakarta">
+            <h2 className="text-3xl font-bold text-center text-primary100 pt-24 font-jakarta">
                 Data Pribadi
             </h2>
-            <p className="text-md text-center text-primary500 mb-6 font-jakarta">
+            <p className="text-md text-center text-primary500 mb-2 font-jakarta">
                 Harap isi formulir ini dengan benar
             </p>
             <div className="flex flex-col items-center justify-center relative">
-                <div className="w-full max-w-xl p-12 bg-white rounded-3xl shadow-custom-shadow">
-                    <div className="flex items-center justify-center">
+                <div className="w-full max-w-2xl p-12 bg-white rounded-3xl shadow-custom-shadow">
+                    <div className="flex items-center justify-center gap-x-0">
                         <div className="flex flex-col items-center">
                             <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
                                 1
                             </div>
                         </div>
                         <div className="w-1/4 px-3">
-                            <Progress progress={50} size="md" color="yellow" />
+                            <Progress progress={50} size="sm" color="yellow" />
                         </div>
                         <div className="flex flex-col items-center">
                             <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
                                 2
                             </div>
                         </div>
-                        <div className="w-1/4 px-3">
-                            <Progress progress={0} size="md" color="gray" />
-                        </div>
-                        <div className="flex flex-col items-center">
-                            <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
-                                3
-                            </div>
-                        </div>
                     </div>
                     <div className="border-b border-yellow-500 w-full my-8" />
-                    <form>
+                    <form onClick={handleNext}>
                         <div className="mb-4">
                             <label
-                                className="text-gray-700 text-sm font-bold font-jakarta mb-2"
+                                className=" text-gray-700 text-sm font-bold  font-jakarta mb-2"
                                 htmlFor="nama"
                             >
                                 Nama
@@ -58,7 +88,7 @@ const DaftarSection = () => {
                                 type="text"
                                 id="nama"
                                 name="nama"
-                                className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
+                                className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
                                 value={formData.nama}
                                 onChange={(e) =>
                                     setFormData({
@@ -66,9 +96,26 @@ const DaftarSection = () => {
                                         nama: e.target.value,
                                     })
                                 }
+                                required
                             />
                         </div>
 
+                        <div className="mb-4">
+                            <label
+                                className="block text-gray-700 text-sm font-bold mb-2"
+                                htmlFor="lomba"
+                            >
+                                Lomba
+                            </label>
+                            <input
+                                type="text"
+                                id="lomba"
+                                name="lomba"
+                                className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
+                                value={formData.lomba}
+                                required
+                            />
+                        </div>
                         <div className="mb-4">
                             <label
                                 className="block text-gray-700 text-sm font-bold mb-2"
@@ -76,42 +123,36 @@ const DaftarSection = () => {
                             >
                                 Kategori
                             </label>
-                            <select
+                            <input
+                                type="text"
                                 id="kategori"
                                 name="kategori"
-                                className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
+                                className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
                                 value={formData.kategori}
-                                onChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        kategori: e.target.value,
-                                    })
-                                }
-                            >
-                                <option value="">Pilih Kategori</option>
-                                <option value="kategori1">Kategori 1</option>
-                            </select>
+                                required
+                            />
                         </div>
 
                         <div className="mb-4">
                             <label
                                 className="block text-gray-700 text-sm font-bold mb-2"
-                                htmlFor="asalInstansi"
+                                htmlFor="instansi"
                             >
                                 Asal Instansi
                             </label>
                             <input
                                 type="text"
-                                id="asalInstansi"
-                                name="asalInstansi"
-                                className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
-                                value={formData.asalInstansi}
+                                id="instansi"
+                                name="instansi"
+                                className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
+                                value={formData.instansi}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        asalInstansi: e.target.value,
+                                        instansi: e.target.value,
                                     })
                                 }
+                                required
                             />
                         </div>
 
@@ -119,47 +160,49 @@ const DaftarSection = () => {
                             <div className="w-1/2">
                                 <label
                                     className="block text-gray-700 text-sm font-bold mb-2"
-                                    htmlFor="tempatTanggalLahir"
-                                >
-                                    Tempat, Tanggal Lahir
-                                </label>
-                                <input
-                                    type="date"
-                                    id="tempatTanggalLahir"
-                                    name="tempatTanggalLahir"
-                                    className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
-                                    value={formData.tempatTanggalLahir}
-                                    onChange={(e) =>
-                                        setFormData({
-                                            ...formData,
-                                            tempatTanggalLahir: e.target.value,
-                                        })
-                                    }
-                                />
-                            </div>
-
-                            <div className="w-1/2">
-                                <label
-                                    className="block text-gray-700 text-sm font-bold mb-2"
-                                    htmlFor="nomorHandphone"
+                                    htmlFor="telepon"
                                 >
                                     Nomor Handphone
                                 </label>
                                 <input
                                     type="text"
-                                    id="nomorHandphone"
-                                    name="nomorHandphone"
-                                    className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
-                                    value={formData.nomorHandphone}
+                                    id="telepon"
+                                    name="telepon"
+                                    className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
+                                    value={formData.telepon}
                                     onChange={(e) =>
                                         setFormData({
                                             ...formData,
-                                            nomorHandphone: e.target.value,
+                                            telepon: e.target.value,
                                         })
                                     }
+                                    required
+                                />
+                            </div>
+                            <div className="w-1/2">
+                                <label
+                                    className="block text-gray-700 text-sm font-bold mb-2"
+                                    htmlFor="bukti"
+                                >
+                                    Bukti (Link Drive)
+                                </label>
+                                <input
+                                    type="text"
+                                    id="bukti"
+                                    name="bukti"
+                                    className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
+                                    value={formData.bukti}
+                                    onChange={(e) =>
+                                        setFormData({
+                                            ...formData,
+                                            bukti: e.target.value,
+                                        })
+                                    }
+                                    required
                                 />
                             </div>
                         </div>
+
                         <div className="mb-4 flex gap-4">
                             <div className="w-1/2">
                                 <label
@@ -172,7 +215,7 @@ const DaftarSection = () => {
                                     type="text"
                                     id="instagram"
                                     name="instagram"
-                                    className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
+                                    className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
                                     value={formData.instagram}
                                     onChange={(e) =>
                                         setFormData({
@@ -180,6 +223,7 @@ const DaftarSection = () => {
                                             instagram: e.target.value,
                                         })
                                     }
+                                    required
                                 />
                             </div>
 
@@ -194,7 +238,7 @@ const DaftarSection = () => {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    className="shadow-custom-shadow2 rounded-lg w-full py-2 px-3 text-gray"
+                                    className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
                                     value={formData.email}
                                     onChange={(e) =>
                                         setFormData({
@@ -202,14 +246,18 @@ const DaftarSection = () => {
                                             email: e.target.value,
                                         })
                                     }
+                                    required
                                 />
                             </div>
                         </div>
+                        <button
+                            type="submit"
+                            className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                        >
+                            Selanjutnya
+                        </button>
                     </form>
                 </div>
-                <button className="absolute bottom-[-4rem] bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta">
-                    Selanjutnya
-                </button>
             </div>
         </section>
     );

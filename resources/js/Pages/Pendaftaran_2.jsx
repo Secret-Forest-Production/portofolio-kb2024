@@ -1,41 +1,43 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "@inertiajs/inertia-react";
 import DaftarLayout from "@/Layouts/DaftarLayout";
+import Bg from "../../assets/bg-pendaftaran.webp";
 
-const Pendaftaran_2 = ({ bidangLomba }) => {
-    // const navigate = useNavigate();
-    const [progress, setProgress] = useState(66);
-    const [files, setFiles] = useState({ formulir: null, bukti: null });
+const Pendaftaran_2 = () => {
+    const [progress, setProgress] = useState(0);
+    const [formData, setFormData] = useState({});
+    const [files, setFiles] = useState({});
 
     useEffect(() => {
-        if (files.formulir && (!needsBuktiPembayaran() || files.bukti)) {
-            setProgress(100);
-        } else if (files.formulir || files.bukti) {
-            setProgress(83);
-        } else {
-            setProgress(66);
+        const savedData = localStorage.getItem("formData");
+        if (savedData) {
+            setFormData(JSON.parse(savedData));
         }
-    }, [files]);
-
-    const needsBuktiPembayaran = () => {
-        return (
-            bidangLomba === "Cerita Nusantara" || bidangLomba === "Videografi"
-        );
-    };
+    }, []);
 
     const handleFileUpload = (e) => {
         const { name, files: selectedFiles } = e.target;
-        setFiles((prevFiles) => ({ ...prevFiles, [name]: selectedFiles[0] }));
+        const newFiles = { ...files, [name]: selectedFiles[0] };
+        setFiles(newFiles);
+
+        // Update progress
+        let newProgress = 66;
+        if (newFiles.formulir) newProgress += 17; // Setengah jalan ke step 3
+        if (newFiles.bukti) newProgress += 17; // Penuh jalan ke step 3
+        setProgress(newProgress);
     };
 
-    // const handleNextClick = () => {
-    //     if (files.formulir && (!needsBuktiPembayaran() || files.bukti)) {
-    //         // Navigate to the next step
-    //         navigate('/verifikasi-biodata', { state: { files } });
-    //     } else {
-    //         alert("Unggah semua file yang diperlukan terlebih dahulu.");
-    //     }
-    // };
+    const needsBuktiPembayaran = () => {
+        return jenisLomba === "Cerita Nusantara" || jenisLomba === "Videografi";
+    };
+
+    const handleNextClick = () => {
+        if (files.formulir && (!needsBuktiPembayaran() || files.bukti)) {
+            // Navigate to the next step
+            navigate('/verifikasi-biodata', { state: { files } });
+        } else {
+            alert("Unggah semua file yang diperlukan terlebih dahulu.");
+        }
+    };
 
     return (
         <DaftarLayout>
@@ -87,9 +89,7 @@ const Pendaftaran_2 = ({ bidangLomba }) => {
                         <label
                             className="block text-gray-700 text-sm font-bold mb-2 cursor-pointer"
                             htmlFor="formulir"
-                            onClick={() =>
-                                document.getElementById("formulir").click()
-                            }
+                            onClick={() => document.getElementById("formulir").click()}
                         >
                             Formulir Pendaftaran
                         </label>
@@ -102,13 +102,9 @@ const Pendaftaran_2 = ({ bidangLomba }) => {
                         />
                         <div
                             className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-teal-500 cursor-pointer"
-                            onClick={() =>
-                                document.getElementById("formulir").click()
-                            }
+                            onClick={() => document.getElementById("formulir").click()}
                         >
-                            {files.formulir
-                                ? files.formulir.name
-                                : "Unggah file"}
+                            {files.formulir ? files.formulir.name : "Unggah file"}
                         </div>
                         <a
                             href="https://drive.google.com/file/d/your_drive_link"
@@ -123,15 +119,10 @@ const Pendaftaran_2 = ({ bidangLomba }) => {
                     <div className="mb-6">
                         <label
                             className={`block text-sm font-bold mb-2 cursor-pointer ${
-                                needsBuktiPembayaran()
-                                    ? "text-gray-700"
-                                    : "text-gray"
+                                needsBuktiPembayaran() ? "text-gray-700" : "text-gray-400"
                             }`}
                             htmlFor="bukti"
-                            onClick={() =>
-                                needsBuktiPembayaran() &&
-                                document.getElementById("bukti").click()
-                            }
+                            onClick={() => needsBuktiPembayaran() && document.getElementById("bukti").click()}
                         >
                             Bukti Pembayaran
                         </label>
@@ -145,13 +136,9 @@ const Pendaftaran_2 = ({ bidangLomba }) => {
                         />
                         <div
                             className={`w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-teal-500 cursor-pointer ${
-                                !needsBuktiPembayaran() &&
-                                "bg-gray-100 cursor-not-allowed"
+                                !needsBuktiPembayaran() && "bg-gray-100 cursor-not-allowed"
                             }`}
-                            onClick={() =>
-                                needsBuktiPembayaran() &&
-                                document.getElementById("bukti").click()
-                            }
+                            onClick={() => needsBuktiPembayaran() && document.getElementById("bukti").click()}
                         >
                             {files.bukti ? files.bukti.name : "Unggah file"}
                         </div>
@@ -159,16 +146,12 @@ const Pendaftaran_2 = ({ bidangLomba }) => {
 
                     <button
                         className={`w-full py-2 rounded-lg text-white ${
-                            files.formulir &&
-                            (!needsBuktiPembayaran() || files.bukti)
+                            files.formulir && (!needsBuktiPembayaran() || files.bukti)
                                 ? "bg-teal-600 hover:bg-teal-700"
                                 : "bg-gray cursor-not-allowed"
                         }`}
-                        // onClick={handleNextClick}
-                        disabled={
-                            !files.formulir ||
-                            (needsBuktiPembayaran() && !files.bukti)
-                        }
+                        onClick={handleNextClick}
+                        disabled={!files.formulir || (needsBuktiPembayaran() && !files.bukti)}
                     >
                         Selanjutnya
                     </button>
