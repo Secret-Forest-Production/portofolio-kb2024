@@ -31,7 +31,12 @@ const DaftarSection = ({ jenisLomba }) => {
                 kategori: "Mahasiswa Nasional",
             }));
         }
-        if (jenisLomba === "Persembahan Moda Tradisional" || jenisLomba === "Busana Kreasi" || jenisLomba === "Tari Tradisional") {
+        if (
+            jenisLomba === "Persembahan Moda Tradisional" ||
+            jenisLomba === "Busana Kreasi" ||
+            jenisLomba === "Tari Tradisional" ||
+            jenisLomba === "Bazar Kebudayaan"
+        ) {
             setFormData((prevData) => ({
                 ...prevData,
                 kategori: "Forum Daerah",
@@ -40,7 +45,7 @@ const DaftarSection = ({ jenisLomba }) => {
         if (jenisLomba === "Cerita Nusantara" || jenisLomba === "") {
             setFormData((prevData) => ({
                 ...prevData,
-                kategori: "SMA/Sederat",
+                kategori: "SMA/Sederajat",
             }));
         }
     }, [jenisLomba]);
@@ -71,7 +76,7 @@ const DaftarSection = ({ jenisLomba }) => {
                         </div>
                     </div>
                     <div className="border-b border-yellow-500 w-full my-8" />
-                    <form>
+                    <form onClick={handleNext}>
                         <div className="mb-4">
                             <label
                                 className=" text-gray-700 text-sm font-bold  font-jakarta mb-2"
@@ -91,6 +96,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                         nama: e.target.value,
                                     })
                                 }
+                                required
                             />
                         </div>
 
@@ -107,7 +113,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                 name="lomba"
                                 className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
                                 value={formData.lomba}
-                                disabled
+                                required
                             />
                         </div>
                         <div className="mb-4">
@@ -123,7 +129,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                 name="kategori"
                                 className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
                                 value={formData.kategori}
-                                disabled
+                                required
                             />
                         </div>
 
@@ -146,6 +152,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                         instansi: e.target.value,
                                     })
                                 }
+                                required
                             />
                         </div>
 
@@ -169,6 +176,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                             telepon: e.target.value,
                                         })
                                     }
+                                    required
                                 />
                             </div>
                             <div className="w-1/2">
@@ -190,6 +198,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                             bukti: e.target.value,
                                         })
                                     }
+                                    required
                                 />
                             </div>
                         </div>
@@ -214,6 +223,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                             instagram: e.target.value,
                                         })
                                     }
+                                    required
                                 />
                             </div>
 
@@ -236,12 +246,12 @@ const DaftarSection = ({ jenisLomba }) => {
                                             email: e.target.value,
                                         })
                                     }
+                                    required
                                 />
                             </div>
                         </div>
                         <button
                             type="submit"
-                            onClick={handleNext}
                             className="absolute bottom-[-4rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
                         >
                             Selanjutnya
