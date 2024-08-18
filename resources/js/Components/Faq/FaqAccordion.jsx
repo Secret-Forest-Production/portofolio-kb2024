@@ -22,7 +22,7 @@ const FaqAccordion = ({ id, active, toggle, quest, answer }) => {
                     {quest}
                 </h1>
                 <motion.span
-                    className={`text-green text-3xl transform transition-transform duration-300 ${
+                    className={`text-green text-3xl transform transition-transform duration-300  ${
                         isClicked ? "rotate-180" : "rotate-0"
                     }`}
                 >
@@ -45,9 +45,10 @@ const FaqAccordion = ({ id, active, toggle, quest, answer }) => {
                             duration: 0.8,
                             ease: [0.04, 0.62, 0.23, 0.98],
                         }}
+                        className="scroll-hidden" 
                     >
                         <motion.p
-                            className="font-montserrat-light font-bold text-base leading-normal text-gray px-4"
+                            className="font-montserrat-light font-bold text-base leading-normal text-gray px-4 scroll-auto" 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
