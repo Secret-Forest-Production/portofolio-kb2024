@@ -1,4 +1,4 @@
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import Parallax from "@/sections/LandingPage/Parallax";
 
@@ -15,8 +15,9 @@ import { VelocityScroll } from "@/Components/magicui/scroll-based-velocity";
 import Medpar from "@/sections/LandingPage/Medpar";
 import AppLayout from "@/Layouts/AppLayout";
 import Hero from "@/sections/LandingPage/Hero";
-export default function Home() {
+export default function Home(props) {
     const [count, setCount] = useState(0);
+    
 
     useEffect(() => {
         if (count < 2024) {
@@ -25,7 +26,12 @@ export default function Home() {
             }, 1);
             return () => clearTimeout(timer);
         }
+   
     }, [count]);
+
+    useEffect(() => {
+        console.log(props)
+    }, []);
 
     return (
         <>
