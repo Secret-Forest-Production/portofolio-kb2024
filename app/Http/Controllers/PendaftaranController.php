@@ -32,7 +32,7 @@ class PendaftaranController extends Controller
         ]);
     }
 
-    public function store(){
+    public function store(Request $request){
       $request->validate([
         'nama' => 'required',
         'instansi' => 'required',
