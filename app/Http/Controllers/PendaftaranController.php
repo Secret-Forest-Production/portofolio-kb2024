@@ -22,6 +22,7 @@ class PendaftaranController extends Controller
                 'nama' => $pendaftaran->nama,
                 'instansi' => $pendaftaran->instansi,
                 'lomba' => $pendaftaran->lomba,
+                'bukti' => $pendaftaran->bukti,
                 'telp' => $pendaftaran->telp,
                 'instagram' => $pendaftaran->instagram,
                 'email' => $pendaftaran->email
@@ -36,6 +37,7 @@ class PendaftaranController extends Controller
         'nama' => 'required',
         'instansi' => 'required',
         'lomba' => 'required',
+        'butki' => 'required',
         'telp' => 'required',
         'instagram' => 'required',
         'email' => 'required',
@@ -44,6 +46,7 @@ class PendaftaranController extends Controller
         'nama' => $request->nama,
         'instansi' => $request->instansi,
         'lomba' => $request->lomba,
+        'bukti' => $request->bukti,
         'telp' => $request->telp,
         'instagram' => $request->instagram,
         'email' => $request->email,
