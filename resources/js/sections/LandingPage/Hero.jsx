@@ -6,7 +6,14 @@ import DecorationKanan3 from "../../../assets/Herokanan3.png";
 import DecorationKiri1 from "../../../assets/Herokiri1.png";
 import DecorationKiri2 from "../../../assets/Herokiri2.png";
 import DecorationKiri3 from "../../../assets/Herokiri3.png";
-import { motion, transform, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import bg from "../../../assets/backgroundFaq.webp";
+import {
+    motion,
+    transform,
+    useMotionValueEvent,
+    useScroll,
+    useTransform,
+} from "framer-motion";
 
 const Hero = () => {
     const target = useRef(null);
@@ -18,13 +25,14 @@ const Hero = () => {
 
     const x = useTransform(scrollYProgress, [0, 1], [0, 300]);
     useMotionValueEvent(x, "change", (latest) => {
-        console.log("Page scroll: ", latest)
-      })
+        console.log("Page scroll: ", latest);
+    });
 
     return (
         <header
             ref={target}
             className="h-screen relative overflow-hidden font-jakarta flex items-center justify-center"
+            style={{ backgroundImage: `url(${bg})` }}
         >
             <main className="container  mx-auto text-xl text-center space-y-2 relative">
                         <motion.img
@@ -107,32 +115,32 @@ const Hero = () => {
                     />
 
 
-                    <motion.img
-                        initial={{
-                            top: "300%",
-                        }}
-                        animate={{
-                            top: "150%",
-                        }}
-                        whileHover={{
-                            scale: 1.1
-                        }}
-                        transition={{
-                            stiffness: 100,
-                            type: "spring",
-                            duration: 10,
-                            top:{
-                                delay: 0.4,
-                            }
-                        }}
-                        style={{
-                            translateY : "-100%"
-                        }}
-                        className="absolute  lg:w-auto w-1/5 left-[15%]"
-                        src={DecorationKiri2}
-                        alt="dekorasi-kanan"
-                        draggable="false"
-                    />
+                <motion.img
+                    initial={{
+                        top: "300%",
+                    }}
+                    animate={{
+                        top: "150%",
+                    }}
+                    whileHover={{
+                        scale: 1.1,
+                    }}
+                    transition={{
+                        stiffness: 100,
+                        type: "spring",
+                        duration: 10,
+                        top: {
+                            delay: 0.4,
+                        },
+                    }}
+                    style={{
+                        translateY: "-100%",
+                    }}
+                    className="absolute  lg:w-auto w-1/5 left-[15%]"
+                    src={DecorationKiri2}
+                    alt="dekorasi-kanan"
+                    draggable="false"
+                />
 
                     <motion.img
                         initial={{
@@ -209,4 +217,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

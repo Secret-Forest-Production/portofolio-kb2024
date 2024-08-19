@@ -28,11 +28,13 @@ Route::get('/pendaftaran', function () {
     return Inertia::render('Pendaftaran');
 })->name('daftar');
 
+
 Route::get('/pendaftaran/step1/{jenisLomba}', function ($jenisLomba) {
     return Inertia::render('Daftar', [
         'jenisLomba' => $jenisLomba
     ]);
 })->name('daftar1');
+
 Route::get('/pendaftaran/step2/{jenisLomba}', function ($jenisLomba) {
     return Inertia::render('Pendaftaran_3', [
         'jenisLomba' => $jenisLomba
@@ -41,4 +43,4 @@ Route::get('/pendaftaran/step2/{jenisLomba}', function ($jenisLomba) {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
