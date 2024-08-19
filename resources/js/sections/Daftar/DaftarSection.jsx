@@ -9,7 +9,7 @@ const DaftarSection = ({ jenisLomba }) => {
         nama: "",
         lomba: jenisLomba,
         instansi: "",
-        telepon: "",
+        telp: "",
         instagram: "",
         email: "",
         bukti: "",
@@ -160,20 +160,20 @@ const DaftarSection = ({ jenisLomba }) => {
                             <div className="w-1/2">
                                 <label
                                     className="block text-gray-700 text-sm font-bold mb-2"
-                                    htmlFor="telepon"
+                                    htmlFor="telp"
                                 >
                                     Nomor Handphone
                                 </label>
                                 <input
                                     type="text"
-                                    id="telepon"
-                                    name="telepon"
+                                    id="telp"
+                                    name="telp"
                                     className="shadow-custom-shadow2 border-none rounded-lg w-full py-2 px-3 text-gray"
-                                    value={formData.telepon}
+                                    value={formData.telp}
                                     onChange={(e) =>
                                         setFormData({
                                             ...formData,
-                                            telepon: e.target.value,
+                                            telp: e.target.value,
                                         })
                                     }
                                     required

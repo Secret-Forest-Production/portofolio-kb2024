@@ -2,47 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Models\Pendaftaran;
+
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
 
 class PendaftaranController extends Controller
 {
-    // public function __construct(){
-    //   $this->middleware('auth')->except(['store']);
-    // }
+  // public function __construct(){
+  //   $this->middleware('auth')->except(['store']);
+  // }
 
-    public function index()
-    {
-        return Inertia::render('Pendaftaran/Index', [
-          'pendaftaran' => Pendaftaran::all()->map(function ($pendaftaran){
-            return [
-                'id' => $pendaftaran->id,
-                'nama' => $pendaftaran->nama,
-                'instansi' => $pendaftaran->instansi,
-                'lomba' => $pendaftaran->lomba,
-                'bukti' => $pendaftaran->bukti,
-                'telp' => $pendaftaran->telp,
-                'instagram' => $pendaftaran->instagram,
-                'email' => $pendaftaran->email
+  public function index()
+  {
 
-            ];
-          })  
-        ]);
-    }
+    $pendaftaran = Pendaftaran::all();
 
-    public function store(){
-      $request->validate([
-        'nama' => 'required',
-        'instansi' => 'required',
-        'lomba' => 'required',
-        'butki' => 'required',
-        'telp' => 'required',
-        'instagram' => 'required',
-        'email' => 'required',
-      ]);
-      $store = Post::create([
+
+    return Inertia::render('Dashboard', [
+      'pendaftaran' =>  $pendaftaran
+    ]);
+  }
+
+  public function store(Request $request)
+  {
+
+  
+    $validated =$request->validate([
+      'nama' => 'required',
+      'instansi' => 'required',
+      'lomba' => 'required',
+      'bukti' => 'required',
+      'telp' => 'required',
+      'instagram' => 'required',
+      'email' => 'required',
+    ]);
+    if ($validated) {
+      $store = Pendaftaran::create([
         'nama' => $request->nama,
         'instansi' => $request->instansi,
         'lomba' => $request->lomba,
@@ -51,17 +48,36 @@ class PendaftaranController extends Controller
         'instagram' => $request->instagram,
         'email' => $request->email,
       ]);
-
-      if($store){
-        return Redirect::route('home')->with('message', 'Data pendaftaran berhasil ditambahkan');
-      }
+      if ($store) {
+        session()->flash('message', 'Pendaftaran berhasil!');
+        
+        // Redirect using Inertia::location()
+        return Inertia::location(route('home'));
     }
 
-    public function delete($id)
-    {
+      return back()->with('error', 'Pendaftaran gagal. Silakan coba lagi.');
+    } else {
+      return back()->with('error', 'Pendaftaran gagal. Silakan coba lagi.');
+     
+    }
+    
+
+
+
+  }
+
+
+
+
+
+
+  public function delete($id)
+  {
+    
       $pendaftaran = Pendaftaran::findOrFail($id);
       $pendaftaran->delete();
-
-      return Redirect::route('pendaftaran.index')->with('message', 'Data pendaftaran berhasil dihapus');
-    }
+  
+      return redirect()->route('dashboard')->with('message', 'Data berhasil dihapus');
+  }
+  
 }

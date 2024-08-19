@@ -41,6 +41,7 @@ const Pendaftaran = () => {
         <AppLayout>
             <section
                 className="min-h-screen bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24"
+
                 style={{ backgroundImage: 'url(${Bg})' }}
             >
                 {/* Header */}
@@ -49,6 +50,7 @@ const Pendaftaran = () => {
                     <h2 className="text-4xl sm:text-5xl text-primary300">Forum Daerah</h2>
                     <p className="mt-2 sm:mt-3 text-md text-primary300 font-normal">
                         Panggung terbesar untuk Forda dan komunitas budaya untuk unjuk
+
                     </p>
                     <p className="text-md text-primary300 font-normal">
                         kemampuan dan meraih prestasi.
@@ -66,11 +68,13 @@ const Pendaftaran = () => {
                                 fade ? "opacity-100" : "opacity-0"
                             }`}
                         />
+
                         <Link href={route('daftar1', selectedImage.title)}>
                             <ShimmerButton
                                 className={`absolute bottom-6 text-xs lg:text-base sm:bottom-14 left-1/2 transform -translate-x-1/2 text-white px-2 py-2 sm:px-6 sm:py-1 rounded-full hover:bg-primary100 transition-opacity duration-300 ${
                                     fade ? "opacity-100" : "opacity-0"
                                 }`}
+
                                 background="#004140"
                                 shimmerSize="0.07em"
                             >
