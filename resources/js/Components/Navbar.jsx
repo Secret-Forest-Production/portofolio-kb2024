@@ -63,14 +63,14 @@ const Navbar = () => {
                     {navItems.map((item, index) => (
                         <NavItem key={index} to={item.link}>{item.name}</NavItem>
                     ))}
-                    <button className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md">
+                    <Link href={route('daftar')} className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md">
                         Daftar
-                    </button>
+                    </Link>
                 </ul>
 
                 {/* Mobile Navigation */}
                 <ul
-                    className={`lg:hidden fixed top-0 left-0 h-screen py-4 w-3/4 px-2 bg-primary500 text-white text-lg font-medium transform duration-300 ease-in-out ${
+                    className={`lg:hidden fixed top-0 left-0 h-screen py-4 w-3/4 px-2 flex flex-col gap-2 bg-primary500 text-white text-lg font-medium transform duration-300 ease-in-out ${
                         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
                 >
@@ -84,9 +84,9 @@ const Navbar = () => {
                             {item.name}
                         </NavItem>
                     ))}
-                    <button className="w-full text-primary500 bg-white hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-2 text-sm  rounded-md mt-4">
+                    <Link href={route('daftar')} className="w-full text-center text-primary500 bg-white hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-2 text-sm  rounded-md mt-4">
                         Daftar
-                    </button>
+                    </Link>
                 </ul>
             </main>
         </nav>

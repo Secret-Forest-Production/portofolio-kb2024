@@ -1,4 +1,4 @@
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import Parallax from "@/sections/LandingPage/Parallax";
 import background from "../../assets/backgroundFaq.webp";
@@ -15,8 +15,10 @@ import { VelocityScroll } from "@/Components/magicui/scroll-based-velocity";
 import Medpar from "@/sections/LandingPage/Medpar";
 import AppLayout from "@/Layouts/AppLayout";
 import Hero from "@/sections/LandingPage/Hero";
-export default function Home() {
+export default function Home(props) {
     const [count, setCount] = useState(0);
+
+    const { flash } = usePage().props;
 
     useEffect(() => {
         if (count < 2024) {
@@ -27,11 +29,21 @@ export default function Home() {
         }
     }, [count]);
 
+    useEffect(() => {
+        console.log(props);
+    }, []);
+
     return (
         <>
             <Head title="home" />
             <AppLayout>
-                <div className="bg-white">
+            {flash&&flash.success && (
+        <div className="alert alert-success text-9xl">{flash.success}</div>
+      )}
+      {flash&&flash.error && (
+        <div className="alert alert-danger">{flash.error}</div>
+      )}
+                <div className="bg-white ">
                     <Hero />
                     <Parallax />
                     <RangkaianKegiatan />
@@ -60,12 +72,11 @@ export default function Home() {
                     <Rangkaian />
                     <Daftar />
                     <section className="py-20">
-                    <VelocityScroll
-                        text="Bekasi Padang Jakarta Malang Lombok"
-                        default_velocity={2}
-                        className="font-kampungbudaya text-center text-4xl font-bold tracking-[-0.02em] text-secondary500 drop-shadow-sm  md:text-5xl md:leading-[5rem]"
-                    />{" "}
-
+                        <VelocityScroll
+                            text="Bekasi Padang Jakarta Malang Lombok"
+                            default_velocity={2}
+                            className="font-kampungbudaya text-center text-4xl font-bold tracking-[-0.02em] text-secondary500 drop-shadow-sm  md:text-5xl md:leading-[5rem]"
+                        />{" "}
                     </section>
                     <Medpar />
                 </div>
