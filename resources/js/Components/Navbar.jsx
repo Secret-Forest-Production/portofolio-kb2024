@@ -6,17 +6,7 @@ import { Link } from "@inertiajs/react";
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    const [isLogoVisible, setIsLogoVisible] = useState(true);
 
     const navItems = [
         {
@@ -25,11 +15,11 @@ const Navbar = () => {
         },
         { name: "Galeri", link: "home" },
         { name: "FAQ", link: "faq" },
-
     ];
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+        setIsLogoVisible(isMobileMenuOpen);
     };
 
     return (
@@ -39,29 +29,33 @@ const Navbar = () => {
             }`}
         >
             <main className="flex container mx-auto justify-between items-center py-2">
-                <img
-                    src={LogoImage}
-                    draggable="false"
-                    alt="logo"
-                    className="lg:w-52 w-32 rounded-b-md"
-                />
+                {isLogoVisible && (
+                    <img
+                        src={LogoImage}
+                        draggable="false"
+                        alt="logo"
+                        className="lg:w-52 w-32 rounded-b-md "
+                    />
+                )}
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden text-3xl text-primary300"
+                    className="lg:hidden text-3xl text-primary300 absolute top-0 right-0 mt-4 mr-4"
                     onClick={toggleMobileMenu}
                 >
                     {isMobileMenuOpen ? (
-                        <Icon icon="mdi:close" />
+                        <Icon icon="mdi:close" className="hidden" />
                     ) : (
-                        <Icon icon="mdi:menu" />
+                        <Icon icon="mdi:menu" className="" />
                     )}
                 </button>
 
                 {/* Desktop Navigation */}
                 <ul className="lg:flex gap-10 hidden items-center text-lg font-medium">
                     {navItems.map((item, index) => (
-                        <NavItem key={index} to={item.link}>{item.name}</NavItem>
+                        <NavItem key={index} to={item.link}>
+                            {item.name}
+                        </NavItem>
                     ))}
                     <button className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md">
                         Daftar
@@ -70,21 +64,31 @@ const Navbar = () => {
 
                 {/* Mobile Navigation */}
                 <ul
-                    className={`lg:hidden fixed top-0 left-0 h-screen py-4 w-3/4 px-2 flex flex-col gap-2 bg-primary500 text-white text-lg font-medium transform duration-300 ease-in-out ${
-                        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
+                    className={`lg:hidden fixed top-0 left-0 w-full h-1/2 bg-[rgba(255,255,255,0.9)] text-primary500 text-lg font-medium transform duration-300 ease-in-out ${
+                        isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+                    } flex flex-col items-center justify-between`}
                 >
-                    <img src={LogoImage} className="w-32 " alt="" />
-                    {navItems.map((item, index) => (
-                        <NavItem
-                            key={index}
-                            className="lg:py-4 px-4 py-2 border-b lg:text-base text-sm border-primary300"
-                            to={item.link}
+                    <div className="flex items-center justify-between px-4 py-4 w-full">
+                        <img src={LogoImage} className="w-32" alt="" />
+                        <button
+                            className="text-3xl text-primary300"
+                            onClick={toggleMobileMenu}
                         >
-                            {item.name}
-                        </NavItem>
-                    ))}
-                    <button className="w-full text-primary500 bg-white hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-2 text-sm  rounded-md mt-4">
+                            <Icon icon="mdi:close" />
+                        </button>
+                    </div>
+                    <div className="flex flex-col items-center w-full">
+                        {navItems.map((item, index) => (
+                            <NavItem
+                                key={index}
+                                className="py-4 px-4 md:text-2xl text-xl border-primary300 flex items-center justify-center w-full"
+                                to={item.link}
+                            >
+                                {item.name}
+                            </NavItem>
+                        ))}
+                    </div>
+                    <button className="md:w-4/12 w-2/6 text-white bg-primary500 hover:bg-white hover:text-primary500 duration-300 ease-in-out hover:scale-95 px-6 py-2 rounded-2xl mb-4">
                         Daftar
                     </button>
                 </ul>
