@@ -18,6 +18,8 @@ import Hero from "@/sections/LandingPage/Hero";
 export default function Home(props) {
     const [count, setCount] = useState(0);
 
+    const { flash } = usePage().props;
+
     useEffect(() => {
         if (count < 2024) {
             const timer = setTimeout(() => {
@@ -35,6 +37,12 @@ export default function Home(props) {
         <>
             <Head title="home" />
             <AppLayout>
+            {flash&&flash.success && (
+        <div className="alert alert-success text-9xl">{flash.success}</div>
+      )}
+      {flash&&flash.error && (
+        <div className="alert alert-danger">{flash.error}</div>
+      )}
                 <div className="bg-white ">
                     <Hero />
                     <Parallax />

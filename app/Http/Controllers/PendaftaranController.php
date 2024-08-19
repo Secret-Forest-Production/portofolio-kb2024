@@ -17,16 +17,19 @@ class PendaftaranController extends Controller
   public function index()
   {
 
+    $pendaftaran = Pendaftaran::all();
+
+
     return Inertia::render('Dashboard', [
-      'pendaftaran' => Pendaftaran::all()
+      'pendaftaran' =>  $pendaftaran
     ]);
   }
 
   public function store(Request $request)
   {
 
-
-    $request->validate([
+  
+    $validated =$request->validate([
       'nama' => 'required',
       'instansi' => 'required',
       'lomba' => 'required',
@@ -35,20 +38,32 @@ class PendaftaranController extends Controller
       'instagram' => 'required',
       'email' => 'required',
     ]);
-    $store = Pendaftaran::create([
-      'nama' => $request->nama,
-      'instansi' => $request->instansi,
-      'lomba' => $request->lomba,
-      'bukti' => $request->bukti,
-      'telp' => $request->telp,
-      'instagram' => $request->instagram,
-      'email' => $request->email,
-    ]);
-
-    if ($store) {
-      session()->flash('message', 'Data pendaftaran berhasil ditambahkan');
-      return Inertia::location(route('home'));
+    if ($validated) {
+      $store = Pendaftaran::create([
+        'nama' => $request->nama,
+        'instansi' => $request->instansi,
+        'lomba' => $request->lomba,
+        'bukti' => $request->bukti,
+        'telp' => $request->telp,
+        'instagram' => $request->instagram,
+        'email' => $request->email,
+      ]);
+      if ($store) {
+        session()->flash('message', 'Pendaftaran berhasil!');
+        
+        // Redirect using Inertia::location()
+        return Inertia::location(route('home'));
     }
+
+      return back()->with('error', 'Pendaftaran gagal. Silakan coba lagi.');
+    } else {
+      return back()->with('error', 'Pendaftaran gagal. Silakan coba lagi.');
+     
+    }
+    
+
+
+
   }
 
 
