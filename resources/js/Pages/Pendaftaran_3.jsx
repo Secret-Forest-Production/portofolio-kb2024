@@ -16,7 +16,6 @@ const Pendaftaran_3 = () => {
         kategori: "",
     });
 
-  
     const { data, setData, post, processing, errors } = useForm({
         nama: "",
         lomba: "",
@@ -28,42 +27,41 @@ const Pendaftaran_3 = () => {
         kategori: "",
     });
 
-    const [namaLomba,setNamaLomba] = useState(null)
-    
+    const [namaLomba, setNamaLomba] = useState(null);
+
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
         if (storedData) {
             const parsedData = JSON.parse(storedData);
-            
-           
+
             const lombaMapping = {
-                'Videografi': 'lensa_budaya',
-                'Persembahan Moda Tradisional': 'moda_tradisional',
-                'Busana Kreasi': 'moda_tradisional',
-                'Tari Tradisional': 'ekspresi_tubuh',
-                'Bazar Kebudayaan': 'bazar_kebudayaan',
-                'Cerita Nusantara': 'legenda_nusantara'
+                Videografi: "lensa_budaya",
+                "Persembahan Moda Tradisional": "moda_tradisional",
+                "Busana Kreasi": "moda_tradisional",
+                "Tari Tradisional": "ekspresi_tubuh",
+                "Bazar Kebudayaan": "bazar_kebudayaan",
+                "Cerita Nusantara": "legenda_nusantara",
             };
 
-            setNamaLomba(data.lomba)
-            
+            setNamaLomba(data.lomba);
+
             if (parsedData.lomba && lombaMapping[parsedData.lomba]) {
                 parsedData.lomba = lombaMapping[parsedData.lomba];
             }
-            
+
             setBiodata(parsedData);
             setData(parsedData);
         }
     }, []);
     const handleSubmit = (e) => {
-        e.preventDefault();
-        post(route('pendaftaran'));
+        // e.preventDefault();
+        post(route("pendaftaran"));
+        const jenisLomba = biodata.lomba;
+        navigate(`/pendaftaran/step3/${jenisLomba}`);
     };
-
 
     const navigate = useNavigate();
 
- 
     return (
         <>
             <DaftarLayout>
@@ -74,10 +72,7 @@ const Pendaftaran_3 = () => {
                     Pastikan data yang sudah anda input benar
                 </p>
                 <div className="flex flex-col items-center justify-center font-jakarta mb-48">
-                    <form
-                       
-                        className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow"
-                    >
+                    <form className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow">
                         <div className="flex items-center justify-center mb-5">
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
@@ -87,13 +82,25 @@ const Pendaftaran_3 = () => {
                             <div className="w-1/4 px-3">
                                 <Progress
                                     progress={100}
-                                    size="md"
+                                    size="sm"
                                     color="yellow"
                                 />
                             </div>
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
                                     2
+                                </div>
+                            </div>
+                            <div className="w-1/4 px-3">
+                                <Progress
+                                    progress={50}
+                                    size="sm"
+                                    color="yellow"
+                                />
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                    3
                                 </div>
                             </div>
                         </div>
