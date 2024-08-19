@@ -14,7 +14,6 @@ module.exports = {
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.jsx",
-        flowbite.content(),
     ],
     prefix: "",
     theme: {
@@ -70,6 +69,20 @@ module.exports = {
             },
 
             keyframes: {
+                "spin-around": {
+                    "0%": {
+                        transform: "translateZ(0) rotate(0)",
+                    },
+                    "15%, 35%": {
+                        transform: "translateZ(0) rotate(90deg)",
+                    },
+                    "65%, 85%": {
+                        transform: "translateZ(0) rotate(270deg)",
+                    },
+                    "100%": {
+                        transform: "translateZ(0) rotate(360deg)",
+                    },
+                },
                 marquee: {
                     from: { transform: "translateX(0)" },
                     to: { transform: "translateX(calc(-100% - var(--gap)))" },
@@ -120,6 +133,7 @@ module.exports = {
                     },
                 },
             },
+
             animation: {
                 "spin-around":
                     "spin-around calc(var(--speed) * 2) infinite linear",
@@ -131,8 +145,9 @@ module.exports = {
                 marquee: "marquee var(--duration) linear infinite",
                 "marquee-vertical":
                     "marquee-vertical var(--duration) linear infinite",
-            },
-            slide: {
+                "spin-around":
+                    "spin-around calc(var(--speed) * 2) infinite linear",
+                slide: "slide var(--speed) ease-in-out infinite alternate",
                 to: {
                     transform: "translate(calc(100cqw - 100%), 0)",
                 },

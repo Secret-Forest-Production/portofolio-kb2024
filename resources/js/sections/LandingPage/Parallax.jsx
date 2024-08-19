@@ -1,15 +1,18 @@
 import React, { useRef } from "react";
-import Decoration from '../../../assets/headerDecoration.png';
-import Bg from '../../../assets/bg-landing.png';
+import Decoration from "../../../assets/headerDecoration.webp";
+import Bg from "../../../assets/bg-landing.png";
 import { motion, useScroll, useTransform } from "framer-motion";
-import awan from '../../../assets/awan.png'
-import parallaxImage from '../../../assets/parallax.png'
+import awan from "../../../assets/awan.png";
+import parallaxImage from "../../../assets/parallax.webp";
 
 const Parallax = () => {
     const target = useRef(null);
     const { scrollYProgress } = useScroll({
         target: target,
-        offset: window.innerWidth>768?["start end",  "start start"]:['start end','end end'],
+        offset:
+            window.innerWidth > 768
+                ? ["start end", "start start"]
+                : ["start end", "end end"],
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [400, 0]);
@@ -30,19 +33,19 @@ const Parallax = () => {
                 alt="background"
                 className="size-full object-cover"
                 draggable="false"
-            />x
+            />
+            x
             <motion.img
                 initial={{}}
                 style={{
                     y: y,
-                    translateY:'27%'
+                    translateY: "27%",
                 }}
                 src={parallaxImage}
                 alt="parallax"
                 className=" absolute  "
                 draggable="false"
             />
-           
             <img
                 src={awan}
                 alt="awan"

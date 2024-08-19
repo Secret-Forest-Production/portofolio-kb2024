@@ -68,7 +68,9 @@ const Pendaftaran = () => {
                         />
                         <Link href={route('daftar1', selectedImage.title)}>
                             <ShimmerButton
-                                className="absolute bottom-6 text-xs lg:text-base sm:bottom-14 left-1/2 transform -translate-x-1/2 text-white px-2 py-2 sm:px-6 sm:py-1 rounded-full hover:bg-primary100"
+                                className={`absolute bottom-6 text-xs lg:text-base sm:bottom-14 left-1/2 transform -translate-x-1/2 text-white px-2 py-2 sm:px-6 sm:py-1 rounded-full hover:bg-primary100 transition-opacity duration-300 ${
+                                    fade ? "opacity-100" : "opacity-0"
+                                }`}
                                 background="#004140"
                                 shimmerSize="0.07em"
                             >
