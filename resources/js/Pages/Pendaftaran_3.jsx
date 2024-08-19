@@ -2,33 +2,68 @@ import React, { useEffect, useState } from "react";
 import DaftarLayout from "@/Layouts/DaftarLayout";
 import { Progress } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "@inertiajs/inertia-react";
 
 const Pendaftaran_3 = () => {
     const [biodata, setBiodata] = useState({
         nama: "",
         lomba: "",
         instansi: "",
-        telepon: "",
+        telp: "",
         instagram: "",
         email: "",
         bukti: "",
         kategori: "",
     });
 
+  
+    const { data, setData, post, processing, errors } = useForm({
+        nama: "",
+        lomba: "",
+        instansi: "",
+        telp: "",
+        instagram: "",
+        email: "",
+        bukti: "",
+        kategori: "",
+    });
+
+    const [namaLomba,setNamaLomba] = useState(null)
+    
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
         if (storedData) {
-            setBiodata(JSON.parse(storedData));
+            const parsedData = JSON.parse(storedData);
+            
+           
+            const lombaMapping = {
+                'Videografi': 'lensa_budaya',
+                'Persembahan Moda Tradisional': 'moda_tradisional',
+                'Busana Kreasi': 'moda_tradisional',
+                'Tari Tradisional': 'ekspresi_tubuh',
+                'Bazar Kebudayaan': 'bazar_kebudayaan',
+                'Cerita Nusantara': 'legenda_nusantara'
+            };
+
+            setNamaLomba(data.lomba)
+            
+            if (parsedData.lomba && lombaMapping[parsedData.lomba]) {
+                parsedData.lomba = lombaMapping[parsedData.lomba];
+            }
+            
+            setBiodata(parsedData);
+            setData(parsedData);
         }
     }, []);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        post(route('pendaftaran'));
+    };
+
 
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-        alert("Terima kasih telah mendaftar. Data Anda telah tersimpan.");
-        navigate(`/pendaftaran`);
-    };
-
+ 
     return (
         <>
             <DaftarLayout>
@@ -40,7 +75,7 @@ const Pendaftaran_3 = () => {
                 </p>
                 <div className="flex flex-col items-center justify-center font-jakarta mb-48">
                     <form
-                        onClick={handleSubmit}
+                       
                         className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow"
                     >
                         <div className="flex items-center justify-center mb-5">
@@ -81,7 +116,7 @@ const Pendaftaran_3 = () => {
                                     },
                                     {
                                         label: "Nomor Handphone",
-                                        value: biodata.telepon,
+                                        value: biodata.telp,
                                     },
                                     {
                                         label: "Instagram",
@@ -116,6 +151,7 @@ const Pendaftaran_3 = () => {
                         </div>
                         <button
                             type="submit"
+                            onClick={handleSubmit}
                             className="absolute bottom-[-52px] lg:bottom-12 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
                         >
                             Submit
