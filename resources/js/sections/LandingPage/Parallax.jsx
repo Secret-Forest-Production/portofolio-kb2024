@@ -34,7 +34,6 @@ const Parallax = () => {
                 className="size-full object-cover"
                 draggable="false"
             />
-            x
             <motion.img
                 initial={{}}
                 style={{

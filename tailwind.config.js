@@ -154,6 +154,11 @@ module.exports = {
                     transform: "translate(calc(100cqw - 100%), 0)",
                 },
             },
+            slide: {
+                to: {
+                    transform: "translate(calc(100cqw - 100%), 0)",
+                },
+            },
         },
     },
     plugins: [require("tailwindcss-animate")],

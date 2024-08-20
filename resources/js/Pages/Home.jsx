@@ -1,7 +1,7 @@
 import { Head, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 import Parallax from "@/sections/LandingPage/Parallax";
-
+import background from "../../assets/backgroundFaq.webp"
 import Ripple from "@/Components/magicui/ripple";
 import maskot from "../../assets/maskot.png";
 import wave from "../../assets/wave.png";
