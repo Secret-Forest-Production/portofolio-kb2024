@@ -19,6 +19,7 @@ const Navbar = () => {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+        
         setIsLogoVisible(isMobileMenuOpen);
     };
 
