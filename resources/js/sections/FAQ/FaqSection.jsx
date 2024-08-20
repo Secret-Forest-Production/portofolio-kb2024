@@ -36,8 +36,8 @@ const FaqSection = () => {
     );
 
     return (
-        <section className="h-auto mt-32 md:h-screen relative flex flex-col md:flex-row items-center justify-between md:my-16">
-            <div className="flex flex-col md:flex-row items-center justify-center md:gap-x-12 lg:gap-x-36 w-full h-full lg:px-32 container">
+        <section className="h-auto mt-32 md:h-screen relative flex flex-col md:flex-row items-center justify-between md:my-2">
+            <div className="flex flex-col md:flex-row items-center justify-center md:gap-x-12 lg:gap-x-36 w-full h-5/6 lg:px-32 container">
                 <h1 className="block md:hidden px-2 text-4xl font-bold mb-4 font-montserrat text-secondary500">
                     Frequently Ask Questions
                 </h1>

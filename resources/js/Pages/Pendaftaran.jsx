@@ -40,8 +40,8 @@ const Pendaftaran = () => {
     return (
         <AppLayout>
             <section
-                className="min-h-screen bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24"
-                style={{ backgroundImage: "url(${Bg})" }}
+                className="h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24"
+                style={{ backgroundImage: `url(${Bg})` }}
             >
                 {/* Header */}
                 <header className="text-center font-jakarta font-bold pt-6 sm:pt-10">
@@ -59,7 +59,6 @@ const Pendaftaran = () => {
                         kemampuan dan meraih prestasi.
                     </p>
                 </header>
-
                 {/* Konten Utama */}
                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-16 mt-6 sm:mt-8">
                     {/* Gambar Horizontal */}
@@ -88,7 +87,7 @@ const Pendaftaran = () => {
                     <div className="grid grid-cols-1 items-center sm:grid-rows-3 gap-6 sm:gap-8 max-w-xs sm:ml-8 font-jakarta text-primary300 font-bold  sm:mt-0">
                         <div className="flex gap-3 lg:-mt-44 ">
                             <a
-                                href="https://drive.google.com/drive/u/3/folders/1VXZl4zUcVqTmVmYzMYcp-dK7hxzDvxPv"
+                                href="https://drive.google.com/file/d/1fRqC1sf5b13KLos7xji8kSS-qwROoDcK/view?usp=drivesdk"
                                 download="Booklet.pdf"
                             >
                                 <button
@@ -99,7 +98,7 @@ const Pendaftaran = () => {
                                 </button>
                             </a>
                             <a
-                                href="https://drive.google.com/drive/folders/1hQI_aqDYioMnsPB9ZgXJqYG9R9LKA8Dg"
+                                href="https://drive.google.com/drive/folders/1hQI_aqDYioMnsPB9ZgXJqYG9R9LKA8Dg?usp=drive_link"
                                 download="Booklet.pdf"
                             >
                                 <button
