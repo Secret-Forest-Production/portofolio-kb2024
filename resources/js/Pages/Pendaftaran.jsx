@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import ShimmerButton from "@/Components/magicui/shimmer-button";
-import Bg from "../../assets/bg-pendaftaran.webp";
+import bg from "../../assets/backgroundFaq.webp";
 import modatradisional from "../../assets/busana-kreasi.webp";
 import legendanusantara from "../../assets/cerita.webp";
 import lensabudaya from "../../assets/videografi.webp";
@@ -40,8 +40,8 @@ const Pendaftaran = () => {
     return (
         <AppLayout>
             <section
-                className="h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24"
-                style={{ backgroundImage: `url(${Bg})` }}
+                className="min-h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24 "
+                style={{ backgroundImage: `url(${bg})` }}
             >
                 {/* Header */}
                 <header className="text-center font-jakarta font-bold pt-6 sm:pt-10">

@@ -126,7 +126,7 @@ const Pendaftaran_4 = () => {
                         <button
                             type="submit"
                             onClick={handleSubmit}
-                            className="absolute bottom-48 lg:bottom-72 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                            className="absolute bottom-[67rem] lg:bottom-67 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
                         >
                             Submit
                         </button>

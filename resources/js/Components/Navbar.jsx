@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LogoImage from "../../assets/logotext.png";
+import LogoBurger from "../../assets/icon.png";
 import { Icon } from "@iconify/react";
 import { Link } from "@inertiajs/react";
 
@@ -30,12 +31,14 @@ const Navbar = () => {
         >
             <main className="flex container mx-auto justify-between items-center py-2">
                 {isLogoVisible && (
-                    <img
-                        src={LogoImage}
-                        draggable="false"
-                        alt="logo"
-                        className="lg:w-52 w-32 rounded-b-md "
-                    />
+                    <a href="/">
+                        <img
+                            src={LogoImage}
+                            draggable="false"
+                            alt="logo"
+                            className="lg:w-52 w-32 rounded-b-md "
+                        />
+                    </a>
                 )}
 
                 {/* Mobile Menu Button */}
@@ -46,7 +49,7 @@ const Navbar = () => {
                     {isMobileMenuOpen ? (
                         <Icon icon="mdi:close" className="hidden" />
                     ) : (
-                        <Icon icon="mdi:menu" className="" />
+                        <img src={LogoBurger} />
                     )}
                 </button>
 
@@ -57,9 +60,12 @@ const Navbar = () => {
                             {item.name}
                         </NavItem>
                     ))}
-                    <button className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md">
+                    <Link
+                        href={route("daftar")}
+                        className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md"
+                    >
                         Daftar
-                    </button>
+                    </Link>
                 </ul>
 
                 {/* Mobile Navigation */}
@@ -88,9 +94,13 @@ const Navbar = () => {
                             </NavItem>
                         ))}
                     </div>
-                    <button className="md:w-4/12 w-2/6 text-white bg-primary500 hover:bg-white hover:text-primary500 duration-300 ease-in-out hover:scale-95 px-6 py-2 rounded-2xl mb-4">
+
+                    <Link
+                        href={route("daftar")}
+                        className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md"
+                    >
                         Daftar
-                    </button>
+                    </Link>
                 </ul>
             </main>
         </nav>

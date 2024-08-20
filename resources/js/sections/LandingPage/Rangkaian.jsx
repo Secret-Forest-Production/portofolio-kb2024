@@ -16,31 +16,45 @@ const Rangkaian = () => {
                     transition={{
                         repeat: Infinity,
                         duration: 2,
-                        ease:"linear"
+                        ease: "linear",
                     }}
                     src={Mahkota}
                     alt="mahkota"
                     draggable="false"
-                    className=""
+                    className="w-72"
                 />
-            <motion.img
-             initial={{
-                opacity:0,
-                y:100
-              }}
-              whileInView={{
-                opacity:1,
-                y:0
-              }}
-              transition={{
-                type:'spring',
-                stiffness:300
-              }}
-            src={TextRangkaian} draggable='false' alt="text" className="lg:w-3/5" />
+                <motion.img
+                    initial={{
+                        opacity: 0,
+                        y: 100,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                    }}
+                    src={TextRangkaian}
+                    draggable="false"
+                    alt="text"
+                    className="lg:w-3/5"
+                />
             </div>
             <main className="space-y-4">
-                <img src={Rangkaian1} draggable='false' alt="info-img" className="lg:w-3/5 mx-auto" />
-                <img src={Rangkaian2} draggable='false' alt="info-img" className="lg:w-3/5 mx-auto" />
+                <img
+                    src={Rangkaian1}
+                    draggable="false"
+                    alt="info-img"
+                    className="lg:w-3/5 mx-auto"
+                />
+                <img
+                    src={Rangkaian2}
+                    draggable="false"
+                    alt="info-img"
+                    className="lg:w-3/5 mx-auto"
+                />
             </main>
         </section>
     );

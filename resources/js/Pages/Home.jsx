@@ -79,7 +79,7 @@ export default function Home(props) {
                                 src={wave}
                                 alt="wave"
                                 draggable="false"
-                                className=" absolute bottom-0 z-30 -translate-y-1/2 md:-translate-y-0"
+                                className=" absolute bottom-0 z-30 -translate-y-full md:-translate-y-0"
                             />
                         </div>
                     </section>

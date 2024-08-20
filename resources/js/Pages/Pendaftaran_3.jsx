@@ -70,9 +70,8 @@ const Pendaftaran_3 = () => {
                 <p className="text-md text-center text-primary500 font-jakarta">
                     Pastikan data yang sudah anda input benar
                 </p>
-                <div className="flex flex-col items-center justify-center font-jakarta mb-48">
+                <div className="flex flex-col items-center justify-center font-jakarta mb-12 lg:mb-48">
                     <form className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow">
-
                         <div className="flex items-center justify-center mb-5">
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
@@ -131,7 +130,7 @@ const Pendaftaran_3 = () => {
                                     },
                                     { label: "Email", value: biodata.email },
                                     {
-                                        label: "Formulir Pendaftaran",
+                                        label: "Bukti Persyaratan (Link Drive)",
                                         value: (
                                             <a
                                                 href={biodata.bukti}
@@ -159,7 +158,7 @@ const Pendaftaran_3 = () => {
                         <button
                             type="submit"
                             onClick={handleSubmit}
-                            className="absolute bottom-[-52px] lg:bottom-12 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                            className="absolute bottom-[58rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
                         >
                             Submit
                         </button>

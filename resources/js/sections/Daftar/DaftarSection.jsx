@@ -170,7 +170,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                     className="block text-gray-700 text-sm font-bold mb-2"
                                     htmlFor="telp"
                                 >
-                                    Nomor Handphone
+                                    Nomor Handphone (WhatsApp)
                                 </label>
                                 <input
                                     type="text"
@@ -192,7 +192,7 @@ const DaftarSection = ({ jenisLomba }) => {
                                     className="block text-gray-700 text-sm font-bold mb-2"
                                     htmlFor="bukti"
                                 >
-                                    Bukti (Link Drive)
+                                    Bukti Persyaratan (Link Drive)
                                 </label>
                                 <input
                                     type="text"
