@@ -41,6 +41,8 @@ const Pendaftaran_4 = () => {
     // Mapping link grup berdasarkan lomba
     const lombaLinks = {
         Videografi: "https://chat.whatsapp.com/DBa0Z01B5PVABhdq8vJh69",
+        "Persembahan Moda Tradisional":
+            "https://chat.whatsapp.com/KWuprZvyX1AKH010jOrWT6",
         "Busana Kreasi": "https://chat.whatsapp.com/KWuprZvyX1AKH010jOrWT6",
         "Tari Tradisional": "https://chat.whatsapp.com/I6KtrVM1cx6DtMNVDyRddc",
         "Bazar Kebudayaan": "https://chat.whatsapp.com/HMdta1iHoAO5nBlbVeyLQ9",
@@ -48,7 +50,7 @@ const Pendaftaran_4 = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         navigate(`/pendaftaran`);
     };
 
