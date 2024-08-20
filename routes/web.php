@@ -40,14 +40,13 @@ Route::get('/pendaftaran/step2/{jenisLomba}', function ($jenisLomba) {
         'jenisLomba' => $jenisLomba
     ]);
 })->name('daftar2');
-<<<<<<< HEAD
+
 Route::get('/pendaftaran/step3/{jenisLomba}', function ($jenisLomba) {
     return Inertia::render('Pendaftaran_4', [
         'jenisLomba' => $jenisLomba
     ]);
 })->name('daftar3');
-=======
->>>>>>> 7d7f899da97b5baf47bc768e4fa5c68543ca6291
+
 
 
 
