@@ -61,7 +61,6 @@ const Pendaftaran_3 = () => {
     };
 
     const navigate = useNavigate();
-
     return (
         <>
             <DaftarLayout>
@@ -73,6 +72,7 @@ const Pendaftaran_3 = () => {
                 </p>
                 <div className="flex flex-col items-center justify-center font-jakarta mb-48">
                     <form className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow">
+
                         <div className="flex items-center justify-center mb-5">
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">

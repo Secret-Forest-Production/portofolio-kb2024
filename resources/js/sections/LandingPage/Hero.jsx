@@ -35,6 +35,7 @@ const Hero = () => {
             style={{ backgroundImage: `url(${bg})` }}
         >
             <main className="container  mx-auto text-xl text-center space-y-2 relative">
+<<<<<<< HEAD
                 <motion.img
                     initial={{
                         top: "300%",
@@ -111,6 +112,87 @@ const Hero = () => {
                     alt="dekorasi-kanan"
                     draggable="false"
                 />
+=======
+                        <motion.img
+                            initial={{
+                                top: "300%",
+                            }}
+                            animate={{
+                                top: window.innerWidth>768?"15%":'0%',
+                            }}
+                            
+                            
+                            whileHover={{
+                                scale: 1.1
+                            }}
+                            transition={{
+                                stiffness: 100,
+                                type: "spring",
+                                duration: 10,
+                            }}
+                            style={{
+                                translateY:"-100%"
+                            }}
+                            className="absolute lg:w-auto w-1/5  right-[23%] "
+                            src={DecorationKanan1}
+                            alt="dekorasi-kanan"
+                            draggable="false"
+                        />
+                    <motion.img
+                        initial={{
+                            top: "300%",
+                        }}
+                        animate={{
+                            top: window.innerWidth>768?"150%":"170%",
+                        }}
+                        whileHover={{
+                            scale: 1.1
+                        }}
+                        transition={{
+                            stiffness: 100,
+                            type: "spring",
+                            duration: 10,
+                            top:{
+                                delay: 0.4,
+                            }
+                        }}
+                        style={{
+                            translateY:"-100%"
+                        }}
+                        className="absolute lg:w-auto w-1/5 right-[15%] "
+                        src={DecorationKanan2}
+                        alt="dekorasi-kanan"
+                        draggable="false"
+                    />
+
+                    <motion.img
+                        initial={{
+                            top: "300%",
+                        }}
+                        animate={{
+                            top: window.innerWidth>768?"50%":"120%",
+                        }}
+                        whileHover={{
+                            scale: 1.1
+                        }}
+                        transition={{
+                            stiffness: 100,
+                            type: "spring",
+                            duration: 10,
+                            top:{
+                                delay: 0.6,
+                            }
+                        }}
+                        style={{
+                            translateY:"-50%"
+                        }}
+                        className="absolute lg:w-auto w-1/5 right-[5%] "
+                        src={DecorationKanan3}
+                        alt="dekorasi-kanan"
+                        draggable="false"
+                    />
+
+>>>>>>> 7d7f899da97b5baf47bc768e4fa5c68543ca6291
 
                 <motion.img
                     initial={{
@@ -139,6 +221,7 @@ const Hero = () => {
                     draggable="false"
                 />
 
+<<<<<<< HEAD
                 <motion.img
                     initial={{
                         top: "300%",
@@ -188,6 +271,57 @@ const Hero = () => {
                     alt="dekorasi-kanan"
                     draggable="false"
                 />
+=======
+                    <motion.img
+                        initial={{
+                            top: "300%",
+                        }}
+                        animate={{
+                            top: window.innerWidth>768?"60%":'10%',
+                        }}
+                        whileHover={{
+                            scale: 1.1
+                        }}
+                        transition={{
+                            stiffness: 100,
+                            type: "spring",
+                            duration: 10,
+                        }}
+                        style={{
+                            translateY : "-100%"
+                        }}
+                        className="absolute lg:w-auto w-1/5 left-[13%] "
+                        src={DecorationKiri1}
+                        alt="dekorasi-kiri"
+                        draggable="false"
+                    />
+                    <motion.img
+                        initial={{
+                            top: "300%",
+                        }}
+                        animate={{
+                            top: window.innerWidth>768?"50%":'-50%',
+                        }}
+                        whileHover={{
+                            scale: 1.1
+                        }}
+                        transition={{
+                            stiffness: 100,
+                            type: "spring",
+                            duration: 10,
+                            top:{
+                                delay: 0.4,
+                            }
+                        }}
+                        style={{
+                            translateY : "-50%"
+                        }}
+                        className="absolute lg:w-auto w-1/5  left-[5%] "
+                        src={DecorationKiri3}
+                        alt="dekorasi-kanan"
+                        draggable="false"
+                    />
+>>>>>>> 7d7f899da97b5baf47bc768e4fa5c68543ca6291
 
                 {/* Kiri end */}
 

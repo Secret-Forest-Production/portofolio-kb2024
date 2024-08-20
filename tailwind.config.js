@@ -26,6 +26,9 @@ module.exports = {
             },
         },
         extend: {
+            backdropBlur: {
+                'xs': '3px', // Custom blur size
+              },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 poppins: ["Poppins", ...defaultTheme.fontFamily.sans],
