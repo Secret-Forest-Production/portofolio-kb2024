@@ -3,6 +3,7 @@ import DekorAtas from "../../../assets/dekormedparatas.png";
 import DekorBawah from "../../../assets/dekormedparbawah.png";
 import Marquee from "@/Components/magicui/marquee";
 import MedparData from "@/Data/Medpar";
+import SponsorData from "@/Data/Sponsor";
 
 const Medpar = () => {
     return (
@@ -18,8 +19,8 @@ const Medpar = () => {
                     OUR SPONSOR
                 </h1>
             </div>
-            <Marquee pauseOnHover className="[--duration:40s] ">
-                {MedparData.map((item, i) => (
+            <Marquee pauseOnHover className="[--duration:20s] ">
+                {SponsorData.map((item, i) => (
                     <img
                         src={item}
                         key={i}
