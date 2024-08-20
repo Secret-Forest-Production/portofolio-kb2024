@@ -39,13 +39,13 @@ const FilosofiLogo = () => {
                     }}
                     src={DekorasiKiri}
                     alt="dekorasi"
-                    className="lg:w-auto w-1/5"
+                    className="lg:w-auto w-1/5 hidden md:block"
                     draggable="false"
                 />
                 <img
                     src={TextJudul}
                     draggable="false"
-                    className="lg:w-3/5 w-1/2 "
+                    className="lg:w-3/5 w-full"
                     alt="Filosofi Logo Kampung Budaya 2024"
                 />
                 <motion.img
@@ -62,7 +62,7 @@ const FilosofiLogo = () => {
                     }}
                     src={DekorasiKanan}
                     alt="dekorasi"
-                    className="lg:w-auto w-1/5"
+                    className="lg:w-auto w-1/5 hidden md:block"
                     draggable="false"
                 />
             </div>
