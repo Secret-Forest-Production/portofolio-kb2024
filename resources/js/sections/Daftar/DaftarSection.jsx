@@ -74,6 +74,14 @@ const DaftarSection = ({ jenisLomba }) => {
                                 2
                             </div>
                         </div>
+                        <div className="w-1/4 px-3">
+                            <Progress progress={0} size="sm" color="yellow" />
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                3
+                            </div>
+                        </div>
                     </div>
                     <div className="border-b border-yellow-500 w-full my-8" />
                     <form onClick={handleNext}>

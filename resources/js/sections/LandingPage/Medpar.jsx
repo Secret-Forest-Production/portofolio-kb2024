@@ -8,19 +8,34 @@ const Medpar = () => {
     return (
         <section className="py-10 space-y-4  font-jakarta">
             <div className="flex container mx-auto flex-col gap-4 items-center">
-                <img src={DekorAtas} alt="dekoratas" draggable="false" />
+                <img
+                    src={DekorAtas}
+                    className="h-20 md:h-auto"
+                    alt="dekoratas"
+                    draggable="false"
+                />
                 <h1 className="font-extrabold text-3xl text-center lg:text-6xl text-primary300">
                     OUR SPONSOR
                 </h1>
             </div>
             <Marquee pauseOnHover className="[--duration:40s] ">
                 {MedparData.map((item, i) => (
-                    <img src={item} key={i} className="w-32 aspect-square object-contain" alt="" />
+                    <img
+                        src={item}
+                        key={i}
+                        className="w-32 aspect-square object-contain"
+                        alt=""
+                    />
                 ))}
             </Marquee>
             <Marquee pauseOnHover reverse className="[--duration:40s] ">
                 {MedparData.map((item, i) => (
-                    <img src={item} key={i} className="w-32 aspect-square object-contain" alt="" />
+                    <img
+                        src={item}
+                        key={i}
+                        className="w-20 md:w-28 aspect-square object-contain"
+                        alt=""
+                    />
                 ))}
             </Marquee>
 
@@ -28,7 +43,12 @@ const Medpar = () => {
                 <h1 className="font-extrabold text-3xl text-center lg:text-6xl text-primary300">
                     AND MEDIA PARTNER
                 </h1>
-                <img src={DekorBawah} alt="dekorbawah" draggable="false" />
+                <img
+                    src={DekorBawah}
+                    className="h-20 md:h-auto"
+                    alt="dekorbawah"
+                    draggable="false"
+                />
             </div>
         </section>
     );

@@ -4,7 +4,7 @@ import { Progress } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "@inertiajs/inertia-react";
 
-const Pendaftaran_3 = () => {
+const Pendaftaran_4 = () => {
     const [biodata, setBiodata] = useState({
         nama: "",
         lomba: "",
@@ -27,52 +27,45 @@ const Pendaftaran_3 = () => {
         kategori: "",
     });
 
-    const [namaLomba, setNamaLomba] = useState(null);
-
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
         if (storedData) {
             const parsedData = JSON.parse(storedData);
-
-            const lombaMapping = {
-                Videografi: "lensa_budaya",
-                "Persembahan Moda Tradisional": "moda_tradisional",
-                "Busana Kreasi": "moda_tradisional",
-                "Tari Tradisional": "ekspresi_tubuh",
-                "Bazar Kebudayaan": "bazar_kebudayaan",
-                "Cerita Nusantara": "legenda_nusantara",
-            };
-
-            setNamaLomba(data.lomba);
-
-            if (parsedData.lomba && lombaMapping[parsedData.lomba]) {
-                parsedData.lomba = lombaMapping[parsedData.lomba];
-            }
-
             setBiodata(parsedData);
             setData(parsedData);
         }
     }, []);
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-        post(route("pendaftaran"));
-        const jenisLomba = biodata.lomba;
-        navigate(`/pendaftaran/step3/${jenisLomba}`);
-    };
 
     const navigate = useNavigate();
+
+    // Mapping link grup berdasarkan lomba
+    const lombaLinks = {
+        Videografi: "https://chat.whatsapp.com/DBa0Z01B5PVABhdq8vJh69",
+        "Persembahan Moda Tradisional":
+            "https://chat.whatsapp.com/KWuprZvyX1AKH010jOrWT6",
+        "Busana Kreasi": "https://chat.whatsapp.com/KWuprZvyX1AKH010jOrWT6",
+        "Tari Tradisional": "https://chat.whatsapp.com/I6KtrVM1cx6DtMNVDyRddc",
+        "Bazar Kebudayaan": "https://chat.whatsapp.com/HMdta1iHoAO5nBlbVeyLQ9",
+        "Cerita Nusantara": "https://chat.whatsapp.com/J3av7X2Tv7fIiS9r9RF9K5",
+    };
+
+    const handleSubmit = (e) => {
+        // e.preventDefault();
+        navigate(`/pendaftaran`);
+    };
+
     return (
         <>
             <DaftarLayout>
                 <h2 className="text-3xl font-bold text-center text-primary100 pt-32 font-jakarta">
-                    Verifikasi Biodata
+                    Pendaftaran Selesai
                 </h2>
                 <p className="text-md text-center text-primary500 font-jakarta">
-                    Pastikan data yang sudah anda input benar
+                    Terima kasih telah mendaftar. Silahkan bergabung pada grup
+                    yang tersedia
                 </p>
                 <div className="flex flex-col items-center justify-center font-jakarta mb-48">
                     <form className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow">
-
                         <div className="flex items-center justify-center mb-5">
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
@@ -93,73 +86,47 @@ const Pendaftaran_3 = () => {
                             </div>
                             <div className="w-1/4 px-3">
                                 <Progress
-                                    progress={50}
+                                    progress={100}
                                     size="sm"
                                     color="yellow"
                                 />
                             </div>
                             <div className="flex flex-col items-center">
-                                <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
                                     3
                                 </div>
                             </div>
                         </div>
-                        <div className="border-b border-yellow-500 w-full my-8" />
+                        <div className="border-b border-yellow-500 w-full my-3" />
                         <div className="mb-4">
-                            <div className="text-gray-700 text-sm">
-                                {[
-                                    { label: "Nama", value: biodata.nama },
-                                    {
-                                        label: "Mendaftarkan",
-                                        value: biodata.lomba,
-                                    },
-                                    {
-                                        label: "Kategori",
-                                        value: biodata.kategori,
-                                    },
-                                    {
-                                        label: "Asal Instansi",
-                                        value: biodata.instansi,
-                                    },
-                                    {
-                                        label: "Nomor Handphone",
-                                        value: biodata.telp,
-                                    },
-                                    {
-                                        label: "Instagram",
-                                        value: biodata.instagram,
-                                    },
-                                    { label: "Email", value: biodata.email },
-                                    {
-                                        label: "Formulir Pendaftaran",
-                                        value: (
+                            <div className="text-gray-700 text-sm rounded-lg p-4 flex flex-col items-center">
+                                {biodata.lomba && lombaLinks[biodata.lomba] && (
+                                    <>
+                                        <strong className="text-primary500 text-center">
+                                            Link Grup {biodata.lomba}
+                                        </strong>
+                                        <span className="block w-full text-center mt-2">
                                             <a
-                                                href={biodata.bukti}
+                                                href={lombaLinks[biodata.lomba]}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-green-600"
+                                                className="text-primary100 underline break-words"
+                                                style={{
+                                                    wordBreak: "break-word",
+                                                    overflowWrap: "break-word",
+                                                }}
                                             >
-                                                {biodata.bukti}
+                                                {lombaLinks[biodata.lomba]}
                                             </a>
-                                        ),
-                                    },
-                                ].map((item, index) => (
-                                    <div key={index} className="mb-2 flex">
-                                        <strong className="w-1/3 text-primary100">
-                                            {item.label}
-                                        </strong>
-                                        <span className="mx-2">:</span>
-                                        <span className="w-2/3 text-gray font-semibold">
-                                            {item.value}
                                         </span>
-                                    </div>
-                                ))}
+                                    </>
+                                )}
                             </div>
                         </div>
                         <button
                             type="submit"
                             onClick={handleSubmit}
-                            className="absolute bottom-[-52px] lg:bottom-12 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                            className="absolute bottom-48 lg:bottom-72 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
                         >
                             Submit
                         </button>
@@ -170,4 +137,4 @@ const Pendaftaran_3 = () => {
     );
 };
 
-export default Pendaftaran_3;
+export default Pendaftaran_4;

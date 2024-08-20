@@ -41,6 +41,13 @@ Route::get('/pendaftaran/step2/{jenisLomba}', function ($jenisLomba) {
     ]);
 })->name('daftar2');
 
+Route::get('/pendaftaran/step3/{jenisLomba}', function ($jenisLomba) {
+    return Inertia::render('Pendaftaran_4', [
+        'jenisLomba' => $jenisLomba
+    ]);
+})->name('daftar3');
+
+
 
 
 require __DIR__ . '/auth.php';
