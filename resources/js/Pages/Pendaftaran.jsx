@@ -87,7 +87,7 @@ const Pendaftaran = () => {
                     <div className="grid grid-cols-1 items-center sm:grid-rows-3 gap-6 sm:gap-8 max-w-xs sm:ml-8 font-jakarta text-primary300 font-bold  sm:mt-0">
                         <div className="flex gap-3 lg:-mt-44 ">
                             <a
-                                href="https://drive.google.com/file/d/1fRqC1sf5b13KLos7xji8kSS-qwROoDcK/view?usp=drivesdk"
+                                href="https://drive.google.com/drive/folders/1ivizkXWbRMpRxciCjXOjvicp2oYbdsus"
                                 download="Booklet.pdf"
                             >
                                 <button
