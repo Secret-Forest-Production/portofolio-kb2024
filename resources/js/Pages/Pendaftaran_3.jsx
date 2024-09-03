@@ -6,14 +6,14 @@ import { useForm } from "@inertiajs/inertia-react";
 
 const Pendaftaran_3 = ({jenisLomba}) => {
     const navigate = useNavigate();
-    console.log(jenisLomba)
+    // console.log(jenisLomba)
     useEffect(() => {
         const isStep1Complete = localStorage.getItem("isStep1Complete");
         console.log(isStep1Complete)
         if (!isStep1Complete) {
             navigate(`/pendaftaran/step1/${jenisLomba}`);
         }
-    }, []);
+    }, [jenisLomba,navigate]);
 
     const [biodata, setBiodata] = useState({
         nama: "",
