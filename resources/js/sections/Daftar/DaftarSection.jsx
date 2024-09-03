@@ -25,6 +25,7 @@ const DaftarSection = ({ jenisLomba }) => {
         if (isFormComplete) {
             localStorage.setItem("formData", JSON.stringify(formData));
             localStorage.setItem("isStep1Complete", "true");
+            navigate(`/pendaftaran/step2/${jenisLomba}`);
         }
     };
 
@@ -52,6 +53,7 @@ const DaftarSection = ({ jenisLomba }) => {
                 kategori: "SMA/Sederajat",
             }));
         }
+     
     }, [jenisLomba]);
 
     const steps = [
@@ -60,13 +62,7 @@ const DaftarSection = ({ jenisLomba }) => {
         { number: 3, isActive: false, progress: 0 },
     ];
 
-    if (localStorage.getItem("isStep1Complete") === "true") {
-        return setChecked(true);
-    }
-
-    return checked ? (
-        <Navigate to={`/pendaftaran/step2/${jenisLomba}`} />
-    ) : (
+    return  (
         <section className="my-0 md:mb-24">
             <h2 className="text-3xl font-bold text-center text-primary100 pt-24 font-jakarta">
                 Data Pribadi
