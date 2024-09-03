@@ -1,8 +1,8 @@
-import Logo1 from "../../assets/FilosofiLogo/logo_01.webp";
-import Logo2 from "../../assets/FilosofiLogo/Logo_02.webp";
-import Logo3 from "../../assets/FilosofiLogo/Logo_03.webp";
-import Logo4 from "../../assets/FilosofiLogo/Logo_04.webp";
-import Logo5 from "../../assets/FilosofiLogo/Logo_05.webp";
+import Logo1 from "../../assets/FilosofiLogo/logo_01.png";
+import Logo2 from "../../assets/FilosofiLogo/logo_02.png";
+import Logo3 from "../../assets/FilosofiLogo/logo_03.png";
+import Logo4 from "../../assets/FilosofiLogo/logo_04.png";
+import Logo5 from "../../assets/FilosofiLogo/logo_05.png";
 
 const FilosofiLogoData = [
     {
@@ -14,30 +14,30 @@ const FilosofiLogoData = [
     },
     {
         id: 1,
-        logoDescription: "WARNA PADA PESUT MAHAKAM",
+        logoDescription: "3 STRIP PADA PESUT MAHAKAM",
         detailDescription:
-            "Hijau melambangkan kehidupan dan pertumbuhan, Biru melambangkan kemakmuran dan keseimbangan",
+            "bermakna Tri Dharma Perguruan Tinggi yakni pendidikan dan pengajaran, penelitian, pengabdian kepada masyarakat",
         logoImage: Logo2,
     },
     {
         id: 2,
-        logoDescription: "3 STRIP PADA PESUT MAHAKAM",
+        logoDescription: "5 NEGATIVE SPACE PADA BADAN PESUT MAHAKAM",
         detailDescription:
-            "bermakna Tri Dharma Perguruan Tinggi yakni pendidikan dan pengajaran, penelitian, pengabdian kepada masyarakat.",
+            "Menandakan 5 simbolis Sila sebagai identitas negara Indonesia",
         logoImage: Logo3,
     },
     {
         id: 3,
-        logoDescription: "5 NEGATIVE SPACE PADA BADAN PESUT MAHAKAM",
+        logoDescription: "BENTUK AIR PADA EKOR PESUT MAHAKAM",
         detailDescription:
-            "Menandakan 5 simbolis Sila sebagai identitas negara Indonesia",
+            "Memiliki arti Keterhubungan dan Ketergantungan. Bermakna yang menekankan setiap elemen - elemen untuk kolaborasi dan kerja sama",
         logoImage: Logo4,
     },
     {
         id: 4,
-        logoDescription: "BENTUK AIR PADA EKOR PESUT MAHAKAM",
+        logoDescription: "MOTIF BATIK PADA LOGO KAMPUNG BUDAYA",
         detailDescription:
-            "Memiliki arti Keterhubungan dan Ketergantungan. Bermakna yang menekankan setiap elemen - elemen untuk kolaborasi dan kerja sama.",
+            "”Asmat” dari Papua melambangkan kekuatan dan spiritualitas, “Rangda” dari Bali melambangkan keseimbangan, ”Ulos” dari Sumatera Utara melambangkan keluarga dan cinta",
         logoImage: Logo5,
     },
 ];

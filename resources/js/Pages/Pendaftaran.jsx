@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import ShimmerButton from "@/Components/magicui/shimmer-button";
-import Bg from "../../assets/bg-pendaftaran.webp";
+import bg from "../../assets/backgroundFaq.webp";
 import modatradisional from "../../assets/busana-kreasi.webp";
 import legendanusantara from "../../assets/cerita.webp";
 import lensabudaya from "../../assets/videografi.webp";
@@ -40,26 +40,25 @@ const Pendaftaran = () => {
     return (
         <AppLayout>
             <section
-                className="min-h-screen bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24"
-                style={{ backgroundImage: "url(${Bg})" }}
+                className="min-h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat z-40 py-12 sm:py-24 "
+                style={{ backgroundImage: `url(${bg})` }}
             >
                 {/* Header */}
                 <header className="text-center font-jakarta font-bold pt-6 sm:pt-10">
-                    <h2 className="text-4xl sm:text-5xl text-secondary500">
+                    <h2 className="text-3xl lg:text-5xl text-secondary500">
                         Lomba Umum &
                     </h2>
-                    <h2 className="text-4xl sm:text-5xl text-primary300">
+                    <h2 className="text-3xl sm:text-5xl text-primary300">
                         Forum Daerah
                     </h2>
-                    <p className="mt-2 sm:mt-3 text-md text-primary300 font-normal">
+                    <p className="mt-2 sm:mt-3 lg:text-base text-xs text-primary300 font-normal">
                         Panggung terbesar untuk Forda dan komunitas budaya untuk
                         unjuk
                     </p>
-                    <p className="text-md text-primary300 font-normal">
+                    <p className="text-md text-primary300 text-xs lg:text-base font-normal">
                         kemampuan dan meraih prestasi.
                     </p>
                 </header>
-
                 {/* Konten Utama */}
                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-16 mt-6 sm:mt-8">
                     {/* Gambar Horizontal */}
@@ -73,7 +72,9 @@ const Pendaftaran = () => {
                         />
                         <Link href={route("daftar1", selectedImage.title)}>
                             <ShimmerButton
-                                className="absolute bottom-6 text-xs lg:text-base sm:bottom-14 left-1/2 transform -translate-x-1/2 text-white px-2 py-2 sm:px-6 sm:py-1 rounded-full hover:bg-primary100"
+                                className={`absolute bottom-6 text-xs lg:text-base sm:bottom-14 left-1/2 transform -translate-x-1/2 text-white px-2 py-2 sm:px-6 sm:py-1 rounded-full hover:bg-primary100 transition-opacity duration-300 ${
+                                    fade ? "opacity-100" : "opacity-0 "
+                                }`}
                                 background="#004140"
                                 shimmerSize="0.07em"
                             >
@@ -83,10 +84,35 @@ const Pendaftaran = () => {
                     </div>
 
                     {/* List Kotak */}
-                    <div className="grid grid-cols-1 just items-center sm:grid-rows-3 gap-6 sm:gap-8 max-w-xs sm:ml-8 font-jakarta text-primary300 font-bold">
+                    <div className="grid grid-cols-1 items-center sm:grid-rows-3 gap-6 sm:gap-8 max-w-xs sm:ml-8 font-jakarta text-primary300 font-bold  sm:mt-0">
+                        <div className="flex gap-3 lg:-mt-44 ">
+                            <a
+                                href="https://drive.google.com/drive/folders/1ivizkXWbRMpRxciCjXOjvicp2oYbdsus"
+                                download="Booklet.pdf"
+                            >
+                                <button
+                                    type="submit"
+                                    className=" bg-white text-teal-600  px-12 py-1 rounded-[0.5rem] hover:bg-teal-700 hover:text-white  text-center font-jakarta shadow-lg"
+                                >
+                                    Booklet
+                                </button>
+                            </a>
+                            <a
+                                href="https://drive.google.com/drive/folders/1hQI_aqDYioMnsPB9ZgXJqYG9R9LKA8Dg?usp=drive_link"
+                                download="Booklet.pdf"
+                            >
+                                <button
+                                    type="submit"
+                                    className=" bg-white text-teal-600 px-12 py-1 rounded-[0.5rem] hover:bg-teal-700 hover:text-white text-center font-jakarta shadow-lg"
+                                >
+                                    Formulir
+                                </button>
+                            </a>
+                        </div>
+
                         {/* Kotak Videografi */}
                         <div
-                            className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-20 sm:h-24 w-40 mx-auto sm:ml-20 hover:bg-gray-200 ${
+                            className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-20 sm:h-24 w-40 mx-auto lg:-mt-44 sm:ml-20 hover:bg-gray-200 ${
                                 selectedId === 2 ? "bg-secondary500" : ""
                             }`}
                             onClick={() => handleChangeImage(1)}
@@ -102,9 +128,9 @@ const Pendaftaran = () => {
                         </div>
 
                         {/* Dua kotak sejajar */}
-                        <div className="grid grid-cols-2 gap-4 mt-3">
+                        <div className="grid grid-cols-2 gap-4 mt-3  lg:-mt-12 ">
                             <div
-                                className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center justify-center h-20 sm:h-24 hover:bg-gray-200 ${
+                                className={`relative cursor-pointer bg-white shadow-lg rounded-lg flex items-center  justify-center h-20 sm:h-24 hover:bg-gray-200 ${
                                     selectedId === 3 ? "bg-primary500" : ""
                                 }`}
                                 onClick={() => handleChangeImage(2)}
@@ -146,7 +172,7 @@ const Pendaftaran = () => {
                                 <img
                                     src={logoBazarKebudayaan}
                                     alt="Bazar Kebudayaan"
-                                    className="h-28 sm:h-40 -mt-6 sm:-mt-12 object-contain"
+                                    className="h-16 lg:h-40 -mt-6 sm:-mt-12 object-contain"
                                 />
                                 <p className="absolute text-center text-sm sm:text-md font-semibold w-full mt-28 sm:mt-32">
                                     Bazar Kebudayaan

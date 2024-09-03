@@ -191,10 +191,10 @@ const Hero = () => {
 
                 {/* Kiri end */}
 
-                <h1 className="lg:text-6xl text-4xl font-bold text-primary300">
+                <h1 className="lg:text-6xl text-3xl font-bold text-primary300">
                     Mempersembahkan
                 </h1>
-                <h1 className="lg:text-6xl text-4xl bg-clip-text h-12 md:h-20 bg-gradient-to-r from-secondary500 to-secondary300 text-transparent font-bold">
+                <h1 className="lg:text-6xl text-3xl bg-clip-text h-12 md:h-20 bg-gradient-to-r from-secondary500 to-secondary300 text-transparent font-bold">
                     Kampung Budaya{" "}
                     <span className="">
                         {" "}

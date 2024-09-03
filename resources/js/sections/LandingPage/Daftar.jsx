@@ -37,7 +37,7 @@ const Daftar = () => {
             <Link href={route('daftar')}>
             <motion.button
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-2 rounded-3xl hover:bg-primary300 duration-300 ease-in-out bg-primary500 text-white font-jakarta lg:text-xl "
+                className="px-8 py-2 rounded-3xl hover:bg-primary300 duration-300 ease-in-out bg-primary500 text-white font-jakarta font-semibold lg:text-xl "
                 >
                 Daftar Sekarang
             </motion.button>

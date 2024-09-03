@@ -2,12 +2,25 @@ import React, { useState, useEffect } from "react";
 import LogoImage from "../../assets/logotext.png";
 import { Icon } from "@iconify/react";
 import { Link } from "@inertiajs/react";
+import iconHamburger from "../../assets/iconHamburger.svg";
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isLogoVisible, setIsLogoVisible] = useState(true);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
     const navItems = [
         {
             name: "Beranda",
@@ -19,13 +32,14 @@ const Navbar = () => {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+
         setIsLogoVisible(isMobileMenuOpen);
     };
 
     return (
         <nav
-            className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out text-primary300 bg-transparent ${
-                isScrolled ? "bg-opacity-50 backdrop-blur-sm" : ""
+            className={`w-full fixed top-0 z-50 font-poppins duration-300 ease-in-out text-primary300  ${
+                isScrolled ? "bg-[rgba(255,255,255,0.9)] bg-opacity-90" : ""
             }`}
         >
             <main className="flex container mx-auto justify-between items-center py-2">
@@ -46,7 +60,8 @@ const Navbar = () => {
                     {isMobileMenuOpen ? (
                         <Icon icon="mdi:close" className="hidden" />
                     ) : (
-                        <Icon icon="mdi:menu" className="" />
+                       
+                        <img src={iconHamburger}  alt="" />
                     )}
                 </button>
 
@@ -57,9 +72,12 @@ const Navbar = () => {
                             {item.name}
                         </NavItem>
                     ))}
-                    <button className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md">
+                    <Link
+                        href={route("daftar")}
+                        className="text-white bg-primary500 hover:bg-primary300 duration-300 ease-in-out hover:scale-95 px-7 py-1 rounded-md"
+                    >
                         Daftar
-                    </button>
+                    </Link>
                 </ul>
 
                 {/* Mobile Navigation */}
@@ -81,16 +99,19 @@ const Navbar = () => {
                         {navItems.map((item, index) => (
                             <NavItem
                                 key={index}
-                                className="py-4 px-4 md:text-2xl text-xl border-primary300 flex items-center justify-center w-full"
+                                className="py-2 px-4 md:text-2xl text-xl border-primary300 flex items-center justify-center w-full"
                                 to={item.link}
                             >
                                 {item.name}
                             </NavItem>
                         ))}
                     </div>
-                    <button className="md:w-4/12 w-2/6 text-white bg-primary500 hover:bg-white hover:text-primary500 duration-300 ease-in-out hover:scale-95 px-6 py-2 rounded-2xl mb-4">
+                    <Link
+                        href={route("daftar")}
+                        className="md:w-4/12 w-2/6 text-white bg-primary500 hover:bg-primary300 hover:text-white duration-300 ease-in-out hover:scale-95 px-6 py-2 rounded-2xl mb-12 text-center"
+                    >
                         Daftar
-                    </button>
+                    </Link>
                 </ul>
             </main>
         </nav>
