@@ -4,7 +4,17 @@ import { Progress } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "@inertiajs/inertia-react";
 
-const Pendaftaran_3 = () => {
+const Pendaftaran_3 = ({jenisLomba}) => {
+    const navigate = useNavigate();
+    console.log(jenisLomba)
+    useEffect(() => {
+        const isStep1Complete = localStorage.getItem("isStep1Complete");
+        console.log(isStep1Complete)
+        if (!isStep1Complete) {
+            navigate(`/pendaftaran/step1/${jenisLomba}`);
+        }
+    }, []);
+
     const [biodata, setBiodata] = useState({
         nama: "",
         lomba: "",
@@ -16,7 +26,6 @@ const Pendaftaran_3 = () => {
         kategori: "",
     });
 
-  
     const { data, setData, post, processing, errors } = useForm({
         nama: "",
         lomba: "",
@@ -28,8 +37,6 @@ const Pendaftaran_3 = () => {
         kategori: "",
     });
 
-    const [namaLomba,setNamaLomba] = useState(null)
-    
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
         if (storedData) {
@@ -45,8 +52,6 @@ const Pendaftaran_3 = () => {
                 'Cerita Nusantara': 'legenda_nusantara'
             };
 
-            setNamaLomba(data.lomba)
-            
             if (parsedData.lomba && lombaMapping[parsedData.lomba]) {
                 parsedData.lomba = lombaMapping[parsedData.lomba];
             }
@@ -56,14 +61,12 @@ const Pendaftaran_3 = () => {
         }
     }, []);
     const handleSubmit = (e) => {
-        e.preventDefault();
-        post(route('pendaftaran'));
+        // e.preventDefault();
+        post(route("pendaftaran"));
+        navigate(`/pendaftaran/step3/${jenisLomba}`);
     };
 
 
-    const navigate = useNavigate();
-
- 
     return (
         <>
             <DaftarLayout>

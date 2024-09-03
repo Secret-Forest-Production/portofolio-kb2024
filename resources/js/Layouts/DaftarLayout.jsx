@@ -6,7 +6,7 @@ import background from "../../assets/backgroundFaq.webp";
 const DaftarLayout = ({ children }) => {
     return (
         <div
-            className="min-h-[1650px] md:min-h-screen"
+            className="min-h-[1650px] h-screen relative overflow-hidden"
             style={{
                 backgroundImage: `url(${background})`,
                 backgroundPosition: "center",
