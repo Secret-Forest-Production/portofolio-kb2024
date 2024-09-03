@@ -4,17 +4,7 @@ import { Progress } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "@inertiajs/inertia-react";
 
-const Pendaftaran_3 = ({jenisLomba}) => {
-    const navigate = useNavigate();
-    // console.log(jenisLomba)
-    useEffect(() => {
-        const isStep1Complete = localStorage.getItem("isStep1Complete");
-        console.log(isStep1Complete)
-        if (!isStep1Complete) {
-            navigate(`/pendaftaran/step1/${jenisLomba}`);
-        }
-    }, [jenisLomba,navigate]);
-
+const Pendaftaran_3 = () => {
     const [biodata, setBiodata] = useState({
         nama: "",
         lomba: "",
@@ -37,25 +27,28 @@ const Pendaftaran_3 = ({jenisLomba}) => {
         kategori: "",
     });
 
+    const [namaLomba, setNamaLomba] = useState(null);
+
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
         if (storedData) {
             const parsedData = JSON.parse(storedData);
-            
-           
+
             const lombaMapping = {
-                'Videografi': 'lensa_budaya',
-                'Persembahan Moda Tradisional': 'moda_tradisional',
-                'Busana Kreasi': 'moda_tradisional',
-                'Tari Tradisional': 'ekspresi_tubuh',
-                'Bazar Kebudayaan': 'bazar_kebudayaan',
-                'Cerita Nusantara': 'legenda_nusantara'
+                Videografi: "lensa_budaya",
+                "Persembahan Moda Tradisional": "moda_tradisional",
+                "Busana Kreasi": "moda_tradisional",
+                "Tari Tradisional": "ekspresi_tubuh",
+                "Bazar Kebudayaan": "bazar_kebudayaan",
+                "Cerita Nusantara": "legenda_nusantara",
             };
+
+            setNamaLomba(data.lomba);
 
             if (parsedData.lomba && lombaMapping[parsedData.lomba]) {
                 parsedData.lomba = lombaMapping[parsedData.lomba];
             }
-            
+
             setBiodata(parsedData);
             setData(parsedData);
         }
@@ -63,10 +56,11 @@ const Pendaftaran_3 = ({jenisLomba}) => {
     const handleSubmit = (e) => {
         // e.preventDefault();
         post(route("pendaftaran"));
+        const jenisLomba = biodata.lomba;
         navigate(`/pendaftaran/step3/${jenisLomba}`);
     };
 
-
+    const navigate = useNavigate();
     return (
         <>
             <DaftarLayout>
@@ -76,11 +70,8 @@ const Pendaftaran_3 = ({jenisLomba}) => {
                 <p className="text-md text-center text-primary500 font-jakarta">
                     Pastikan data yang sudah anda input benar
                 </p>
-                <div className="flex flex-col items-center justify-center font-jakarta mb-48">
-                    <form
-                       
-                        className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow"
-                    >
+                <div className="flex flex-col items-center justify-center font-jakarta mb-12 lg:mb-48">
+                    <form className="w-full max-w-md p-8 bg-white rounded-3xl shadow-custom-shadow">
                         <div className="flex items-center justify-center mb-5">
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
@@ -90,13 +81,25 @@ const Pendaftaran_3 = ({jenisLomba}) => {
                             <div className="w-1/4 px-3">
                                 <Progress
                                     progress={100}
-                                    size="md"
+                                    size="sm"
                                     color="yellow"
                                 />
                             </div>
                             <div className="flex flex-col items-center">
                                 <div className="bg-secondary500 text-white p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
                                     2
+                                </div>
+                            </div>
+                            <div className="w-1/4 px-3">
+                                <Progress
+                                    progress={50}
+                                    size="sm"
+                                    color="yellow"
+                                />
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="bg-[#EFF0F6] text-[#6F6C90] p-2 rounded-full text-lg flex items-center justify-center w-10 h-10">
+                                    3
                                 </div>
                             </div>
                         </div>
@@ -127,7 +130,7 @@ const Pendaftaran_3 = ({jenisLomba}) => {
                                     },
                                     { label: "Email", value: biodata.email },
                                     {
-                                        label: "Formulir Pendaftaran",
+                                        label: "Bukti Persyaratan (Link Drive)",
                                         value: (
                                             <a
                                                 href={biodata.bukti}
@@ -155,7 +158,7 @@ const Pendaftaran_3 = ({jenisLomba}) => {
                         <button
                             type="submit"
                             onClick={handleSubmit}
-                            className="absolute bottom-[-52px] lg:bottom-12 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                            className="absolute bottom-[58rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
                         >
                             Submit
                         </button>
