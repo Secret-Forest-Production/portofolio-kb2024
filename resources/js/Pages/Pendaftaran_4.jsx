@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DaftarLayout from "@/Layouts/DaftarLayout";
 import { Progress } from "flowbite-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "@inertiajs/inertia-react";
 
 const Pendaftaran_4 = () => {
@@ -26,13 +26,15 @@ const Pendaftaran_4 = () => {
         bukti: "",
         kategori: "",
     });
-
+    const url = useLocation().pathname.replace("/pendaftaran/step3/", "");
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
         if (storedData) {
             const parsedData = JSON.parse(storedData);
             setBiodata(parsedData);
             setData(parsedData);
+        } else {
+            window.location = `/pendaftaran/step1/${url}`;
         }
     }, []);
 

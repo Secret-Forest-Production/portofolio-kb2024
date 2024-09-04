@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import DaftarLayout from "@/Layouts/DaftarLayout";
 import { Progress } from "flowbite-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "@inertiajs/inertia-react";
+import { Link } from '@inertiajs/react'
 
 const Pendaftaran_3 = () => {
     const [biodata, setBiodata] = useState({
@@ -27,10 +28,13 @@ const Pendaftaran_3 = () => {
         kategori: "",
     });
 
+    const navigate = useNavigate();
     const [namaLomba, setNamaLomba] = useState(null);
+    const url = useLocation().pathname.replace('/pendaftaran/step2/', '');
 
     useEffect(() => {
         const storedData = localStorage.getItem("formData");
+        console.log(`storedData = ${storedData}`);
         if (storedData) {
             const parsedData = JSON.parse(storedData);
 
@@ -51,16 +55,43 @@ const Pendaftaran_3 = () => {
 
             setBiodata(parsedData);
             setData(parsedData);
+        } else {
+            window.location = `/pendaftaran/step1/${url}`;
         }
     }, []);
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-        post(route("pendaftaran"));
-        const jenisLomba = biodata.lomba;
-        navigate(`/pendaftaran/step3/${jenisLomba}`);
-    };
 
-    const navigate = useNavigate();
+    // const storedData = localStorage.getItem("formData");
+    // console.log(`storedData = ${storedData}`);
+    // if (storedData) {
+    //     const parsedData = JSON.parse(storedData);
+
+    //     const lombaMapping = {
+    //         Videografi: "lensa_budaya",
+    //         "Persembahan Moda Tradisional": "moda_tradisional",
+    //         "Busana Kreasi": "moda_tradisional",
+    //         "Tari Tradisional": "ekspresi_tubuh",
+    //         "Bazar Kebudayaan": "bazar_kebudayaan",
+    //         "Cerita Nusantara": "legenda_nusantara",
+    //     };
+
+    //     setNamaLomba(data.lomba);
+
+    //     if (parsedData.lomba && lombaMapping[parsedData.lomba]) {
+    //         parsedData.lomba = lombaMapping[parsedData.lomba];
+    //     }
+
+    //     setBiodata(parsedData);
+    //     setData(parsedData);
+    // } else {
+    //     window.location.href = `/pendaftaran/step1/${url}`;
+    // }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        post(route("pendaftaran"));
+        navigate(`/pendaftaran/step3/${url}`);
+    };
+    
     return (
         <>
             <DaftarLayout>

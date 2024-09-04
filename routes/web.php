@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Middleware\CheckForm1Completion;
+use App\Http\Middleware\CheckForm2Completion;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -34,6 +37,16 @@ Route::get('/pendaftaran/step1/{jenisLomba}', function ($jenisLomba) {
         'jenisLomba' => $jenisLomba
     ]);
 })->name('daftar1');
+
+// Route::post('/pendaftaran/step1/update/session', [PendaftaranController::class, 'submitStep1'])->name('updateSession');
+
+// Route::get('/clear-session', function () {
+//     Log::info(session()->all());
+//     session()->forget('isStep1Complete');
+//     session()->forget('isStep2Complete');
+//     Log::info('Session clear success');
+//     return redirect()->back();
+// });
 
 Route::get('/pendaftaran/step2/{jenisLomba}', function ($jenisLomba) {
     return Inertia::render('Pendaftaran_3', [

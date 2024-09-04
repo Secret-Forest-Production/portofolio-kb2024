@@ -19,13 +19,14 @@ const DaftarSection = ({ jenisLomba }) => {
     const [checked, setChecked] = useState(false);
 
     const handleNext = (event) => {
+        event.preventDefault();
         const isFormComplete = Object.values(formData).every(
             (value) => value !== ""
         );
         if (isFormComplete) {
             localStorage.setItem("formData", JSON.stringify(formData));
             localStorage.setItem("isStep1Complete", "true");
-            navigate(`/pendaftaran/step2/${jenisLomba}`);
+            window.location = `/pendaftaran/step2/${jenisLomba}`;
         }
     };
 
