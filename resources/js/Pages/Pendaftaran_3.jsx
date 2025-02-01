@@ -56,7 +56,7 @@ const Pendaftaran_3 = () => {
             setBiodata(parsedData);
             setData(parsedData);
         } else {
-            window.location = `/pendaftaran/step1/${url}`;
+            // window.location = `/pendaftaran/step1/${url}`;
         }
     }, []);
 
@@ -186,13 +186,15 @@ const Pendaftaran_3 = () => {
                                 ))}
                             </div>
                         </div>
-                        <button
-                            type="submit"
-                            onClick={handleSubmit}
-                            className="absolute bottom-[58rem] left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
-                        >
-                            Submit
-                        </button>
+                        
+                        <div className="flex items-center justify-center">
+                            <a
+                                className="bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                                href="/pendaftaran/step3"
+                            >
+                                Sumbit
+                            </a>
+                        </div>
                     </form>
                 </div>
             </DaftarLayout>

@@ -7,12 +7,13 @@ const Daftar = () => {
     const { props } = usePage();
     const { jenisLomba } = props;
 
-    console.log(props)
+    console.log(props);
     return (
         <>
             <Head title="Daftar" />
             <DaftarLayout>
-                <DaftarSection jenisLomba={jenisLomba}/>
+                <DaftarSection jenisLomba={jenisLomba} />
+                
             </DaftarLayout>
         </>
     );

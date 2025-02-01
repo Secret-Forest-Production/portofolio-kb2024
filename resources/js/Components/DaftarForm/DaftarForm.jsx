@@ -1,6 +1,7 @@
 import React from "react";
 import FormField from "../FormField";
 import Button from "../Button";
+import { Navigate } from "react-router-dom";
 
 const Form = ({ formData, setFormData, handleNext }) => (
     <form onSubmit={handleNext}>
@@ -97,7 +98,12 @@ const Form = ({ formData, setFormData, handleNext }) => (
         </div>
 
         <div className="flex items-center justify-center">
-            <Button>Selanjutnya</Button>
+            <a
+                className="bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                href="/pendaftaran/step2"
+            >
+                Selanjutnya
+            </a>
         </div>
     </form>
 );

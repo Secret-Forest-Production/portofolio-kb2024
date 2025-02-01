@@ -70,7 +70,7 @@ const Pendaftaran = () => {
                                 fade ? "opacity-100" : "opacity-0"
                             }`}
                         />
-                        <Link href={route("daftar1", selectedImage.title)}>
+                        <Link href="/pendaftaran/step1">
                             <ShimmerButton
                                 className={`absolute bottom-6 text-xs lg:text-base sm:bottom-14 left-1/2 transform -translate-x-1/2 text-white px-2 py-2 sm:px-6 sm:py-1 rounded-full hover:bg-primary100 transition-opacity duration-300 ${
                                     fade ? "opacity-100" : "opacity-0 "
@@ -86,10 +86,7 @@ const Pendaftaran = () => {
                     {/* List Kotak */}
                     <div className="grid grid-cols-1 items-center sm:grid-rows-3 gap-6 sm:gap-8 max-w-xs sm:ml-8 font-jakarta text-primary300 font-bold  sm:mt-0">
                         <div className="flex gap-3 lg:-mt-44 ">
-                            <a
-                                href="https://drive.google.com/drive/folders/1ivizkXWbRMpRxciCjXOjvicp2oYbdsus"
-                                download="Booklet.pdf"
-                            >
+                            <a href="#">
                                 <button
                                     type="submit"
                                     className=" bg-white text-teal-600  px-12 py-1 rounded-[0.5rem] hover:bg-teal-700 hover:text-white  text-center font-jakarta shadow-lg"

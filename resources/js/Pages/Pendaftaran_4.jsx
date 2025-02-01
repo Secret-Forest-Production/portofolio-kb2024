@@ -5,16 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "@inertiajs/inertia-react";
 
 const Pendaftaran_4 = () => {
-    const [biodata, setBiodata] = useState({
-        nama: "",
-        lomba: "",
-        instansi: "",
-        telp: "",
-        instagram: "",
-        email: "",
-        bukti: "",
-        kategori: "",
-    });
+    const [biodata, setBiodata] = useState({ lomba: "Videografi" });
 
     const { data, setData, post, processing, errors } = useForm({
         nama: "",
@@ -34,7 +25,7 @@ const Pendaftaran_4 = () => {
             setBiodata(parsedData);
             setData(parsedData);
         } else {
-            window.location = `/pendaftaran/step1/${url}`;
+            // window.location = `/pendaftaran/step1/${url}`;
         }
     }, []);
 
@@ -42,13 +33,13 @@ const Pendaftaran_4 = () => {
 
     // Mapping link grup berdasarkan lomba
     const lombaLinks = {
-        Videografi: "https://chat.whatsapp.com/DBa0Z01B5PVABhdq8vJh69",
+        Videografi: "https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxxx",
         "Persembahan Moda Tradisional":
-            "https://chat.whatsapp.com/KWuprZvyX1AKH010jOrWT6",
-        "Busana Kreasi": "https://chat.whatsapp.com/KWuprZvyX1AKH010jOrWT6",
-        "Tari Tradisional": "https://chat.whatsapp.com/I6KtrVM1cx6DtMNVDyRddc",
-        "Bazar Kebudayaan": "https://chat.whatsapp.com/HMdta1iHoAO5nBlbVeyLQ9",
-        "Cerita Nusantara": "https://chat.whatsapp.com/J3av7X2Tv7fIiS9r9RF9K5",
+            "https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxxx",
+        "Busana Kreasi": "https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxxx",
+        "Tari Tradisional": "https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxxx",
+        "Bazar Kebudayaan": "https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxxx",
+        "Cerita Nusantara": "https://chat.whatsapp.com/xxxxxxxxxxxxxxxxxxxxx",
     };
 
     const handleSubmit = (e) => {
@@ -125,13 +116,15 @@ const Pendaftaran_4 = () => {
                                 )}
                             </div>
                         </div>
-                        <button
-                            type="submit"
-                            onClick={handleSubmit}
-                            className="absolute bottom-[67rem] lg:bottom-67 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
-                        >
-                            Submit
-                        </button>
+                        
+                        <div className="flex items-center justify-center">
+                            <a
+                                className="bg-teal-600 text-white px-8 py-3 rounded-[3.5rem] hover:bg-teal-700 text-center font-jakarta"
+                                href="/"
+                            >
+                                Sumbit
+                            </a>
+                        </div>
                     </form>
                 </div>
             </DaftarLayout>
